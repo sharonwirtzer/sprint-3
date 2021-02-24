@@ -5,14 +5,25 @@
 
 /* HEADER */
 
-.home  {
-    background-color: rgb(35, 37, 65);
+.app-header{
+
+  background-color: rgb(35, 37, 65);
     color: aliceblue;
     padding: 10px;
     height: 5vh;
     display: flex;
     justify-content: space-between;
     align-items: center;
+
+
+}
+
+
+
+
+.app-main {
+    background-color: lightblue;
+    min-height: 90vh;
 }
 
 /* APP */
