@@ -7,23 +7,24 @@
 
 .app-header{
 
-  background-color: rgb(35, 37, 65);
+  background-color: transparent;
     color: aliceblue;
-    padding: 10px;
+    padding: 40px;
     height: 5vh;
     display: flex;
     justify-content: space-between;
     align-items: center;
-
-
 }
 
 
 .app-main {
-    background-color: lightblue;
+    background-color: rgb(225, 234, 238);
     min-height: 90vh;
 }
 
+.logo{
+    color: rgb(224, 200, 62);
+}
 /* APP */
 
 
@@ -39,6 +40,6 @@
 /* FOOTER */
 
 footer {
-    background-color: lightgreen;
+    background-color: transparent;
     padding: 10px;
 }
