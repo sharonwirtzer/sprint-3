@@ -7,9 +7,9 @@ import keepEdit from '../pages/keep-edit.cmp.js'
 export default {
     template: `
         <section class="keep app-main">
-            <keep-filter @filtered="setFilter" />
-            <keep-list :keeps="keepsToShow" @remove="removekeep" @selected="selectkeep" />
-            <keep-edit />
+        <keep-filter @filtered="setFilter" />
+         <keep-edit />
+            <keep-list :keeps="keepsToShow" @remove="removekeep" @selected="selectkeep" /><!--  -->
         </section>
     `,
     data() {

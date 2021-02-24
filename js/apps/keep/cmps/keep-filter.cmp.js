@@ -2,9 +2,7 @@ export default {
     template: `
     
     <section class="keep-filter">
-        <label> Search a keep: </label> 
-        
-        <input type="text" @input="setFilter" placeholder="Search" v-model="filterBy.bytitle">
+         <input type="text" @input="setFilter" placeholder="Search" v-model="filterBy.bytitle">
     </section>
      </header>
     `,
