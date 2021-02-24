@@ -1,9 +1,8 @@
 export default {
     template: `
     
-    <section class="keep-filter">
-         <input type="text" @input="setFilter" placeholder="Search" v-model="filterBy.bytitle">
-    </section>
+         <input type="text" class="keep-filter" @input="setFilter" placeholder="Search" v-model="filterBy.bytitle">
+    
      </header>
     `,
     data() {

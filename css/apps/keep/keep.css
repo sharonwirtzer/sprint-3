@@ -6,20 +6,20 @@
 
 .keep-preview{
 height: 200px;
-    background-color: rgb(179, 119, 119);
+    background-color: rgb(191, 81, 212);
     width: 200px;
 }
 
 
-ul{
-    padding-left: 200px;
-    
-   
-}
-
 .keep-filter{
-
+  margin-left: 120px;
+background-color: rgb(228, 232, 238);
   padding: 10px;
+  font-size: 17px;
+  border: 1px solid grey;
+  float: left;
+  width: 60%;
+  border-radius: 5px;
 
 }
 
@@ -29,7 +29,13 @@ ul{
   align-items: center;
   margin: 10px;
   padding: 5px;
+
 }
+
+
+
+
+
 
 
 /* 
@@ -46,4 +52,5 @@ ul{
     transform: translateY(-30px);
   }
  */
+
 

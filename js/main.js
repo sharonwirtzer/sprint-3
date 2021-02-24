@@ -14,7 +14,7 @@
         <section>
             <app-header /> 
             <router-view /> 
-            <footer><p> &copy; Coffeerights 2021</p></footer>
+            <footer><p> Let's be Friends. <a href="#" class="fa fa-facebook"></a> <a href="#" class="fa fa-linkedin"></a> </p></footer>
         </section>
     `,
      components: {
