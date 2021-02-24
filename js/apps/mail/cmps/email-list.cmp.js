@@ -15,10 +15,10 @@ export default {
     </ul>
     `,
     methods: {
-        remove(mailId) {
+        remove(emailId) {
             this.$emit('remove', emailId)
         },
-        logId(mailId) {
+        logId(emailId) {
             console.log('Id is', emailId);
         }
     },

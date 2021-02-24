@@ -10,10 +10,10 @@ export default {
     // <router-link to="/mail/edit">Add a new email!</router-link>
 
     template: `
-        <section class="mail-app">
+        <section class="email-app">
             <email-filter @filtered="setFilter" />
             <email-compose/>
-            <email-list :mails="emailsToShow" @remove="removEmail" />
+            <email-list :mails="emailsToShow" @remove="removeEmail" />
             <email-preview/>
         </section>
     `,
@@ -28,7 +28,7 @@ export default {
             emailService.query()
                 .then(emails => this.mails = emails)
         },
-        removEmail(emailId) {
+        removeEmail(emailId) {
             emailService.remove(emailId)
                 .then(this.loadEmails)
         },
@@ -37,9 +37,9 @@ export default {
         }
     },
     computed: {
-        eemailsToShow() {
+        emailsToShow() {
             if (!this.filterBy) return this.emails;
-            var { byTxt } = this.filterBy
+            var { byTxt } = this.filterBy;
             byTxt = byTxt.toLowerCase();
             const emailsToShow = this.emails.filter(({ title, list }) => {
                 return (title.toLowerCase().includes(byTxt))

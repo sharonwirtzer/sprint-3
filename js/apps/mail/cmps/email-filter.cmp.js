@@ -12,7 +12,7 @@ export default {
     data() {
         return {
             filterBy: {
-                byRead: '',
+                byRead: false,
                 byTxt: ''
             }
         }
