@@ -8,8 +8,6 @@ export default {
             <keep-preview :keep="keep" @click.native="logId(keep.id)" />
             <div class="btns-container">
                 <button @click="remove(keep.id)">X</button>
-                <button @click="select(keep)">Details</button>
-                
             </div>
         </li>
     </ul>

@@ -1,9 +1,13 @@
 
-
-
 * {
     box-sizing: border-box;
     margin: 0px;
+}
+
+.keep-preview{
+height: 200px;
+    background-color: rgb(179, 119, 119);
+    width: 200px;
 }
 
 
@@ -11,8 +15,11 @@
 
 
 
+
+
+/* 
 .note-area {
-    padding-left: 20px;
+    padding-left: 200px;
     position: absolute;
     width: 100%;
   }
@@ -23,5 +30,5 @@
     opacity: 0;
     transform: translateY(-30px);
   }
-
+ */
 

@@ -6,6 +6,7 @@ export default {
         <img :src="keep.thumbnail" /> 
         <p>note: {{keep.note}}</p>
         
+        
     </section>
     `,
 
