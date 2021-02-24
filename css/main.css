@@ -6,15 +6,27 @@
 
 /* HEADER */
 
-.home {
-    background-color: rgb(35, 37, 65);
+.app-header {
+    background-color: transparent;
     color: aliceblue;
-    padding: 10px;
+    padding: 40px;
     height: 5vh;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
+
+.app-main {
+    background-color: rgb(225, 234, 238);
+    min-height: 90vh;
+}
+
+.logo {
+    color: rgb(224, 200, 62);
+}
+
+
+/* APP */
 
 
 /* APP */
@@ -24,3 +36,11 @@
 
 
 /* LIST */
+
+
+/* FOOTER */
+
+footer {
+    background-color: transparent;
+    padding: 10px;
+}
