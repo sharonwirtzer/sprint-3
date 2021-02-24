@@ -10,16 +10,38 @@
     margin: 10px;
     justify-content: space-between;
     border-radius: 4px;
+    cursor: pointer;
 }
 
+.email-preview {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.bold {
+    font-weight: 200;
+}
+
+.unBold {
+    font-weight: 800;
+}
+
+
+/* .star {
+    cursor: pointer;
+} */
+
 .star-fill {
-    content: '★';
-    /* ⭐ */
+    content: '⭐';
+    cursor: pointer;
+    /*  ★*/
 }
 
 .star-un-fill {
     /* content: '★'; */
     content: '☆';
+    cursor: pointer;
 }
 
 

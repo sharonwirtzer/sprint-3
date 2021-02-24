@@ -17,7 +17,7 @@ export default {
         <section class="email app-main">
             <email-filter @filtered="setFilter" />
             <email-compose/>
-            <email-list :emails="emailsToShow" @remove="removeEmail" />
+            <email-list :emails="emailsToShow" @remove="removeEmail"  @read="markEmailRead"/>
          
         </section>
     `,
@@ -36,9 +36,15 @@ export default {
         removeEmail(emailId) {
             emailService.remove(emailId)
                 .then(this.loadEmails)
+            debugger
         },
         setFilter(filterBy) {
             this.filterBy = filterBy
+        },
+        markEmailRead(emailId) { //to turn to emailService for that?????
+            debugger
+            if (this.emails[emailId].isRead) return;
+            this.emails[emailId].isRead = true; //To check if this component can access to this variable...
         }
     },
     computed: {
