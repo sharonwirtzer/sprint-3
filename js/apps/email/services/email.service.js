@@ -44,11 +44,11 @@ function _createEmails() {
     let emails = utilService.loadFromStorage(EMAILS_KEY)
     if (!emails || !emails.length) {
         emails = []
-        emails.push(_createEmail('Wassap1?', 'Pick up1!'));
-        emails.push(_createEmail('Wassap2?', 'Pick up2!'));
-        emails.push(_createEmail('Wassap3?', 'Pick up3!'));
-        emails.push(_createEmail('Wassap4?', 'Pick up4!'));
-        emails.push(_createEmail('Wassap5?', 'Pick up5!'));
+        emails.push(_createEmail('Puki1', 'Wassap1?', 'Pick up1!'));
+        emails.push(_createEmail('Puki2', 'Wassap2?', 'Pick up2!'));
+        emails.push(_createEmail('Puki3', 'Wassap3?', 'Pick up3!'));
+        emails.push(_createEmail('Puki4', 'Wassap4?', 'Pick up4!'));
+        emails.push(_createEmail('Puki5', 'Wassap5?', 'Pick up5!'));
         utilService.saveToStorage(EMAILS_KEY, emails)
     }
     return emails;

@@ -5,6 +5,7 @@ import about from './pages/about.cmp.js';
 import book from './apps/book/pages/book-app.cmp.js';
 
 
+
 const routes = [{
         path: '/',
         component: homePage,

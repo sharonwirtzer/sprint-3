@@ -17,7 +17,7 @@ export default {
         <section class="email app-main">
             <email-filter @filtered="setFilter" />
             <email-compose/>
-            <email-list :mails="emailsToShow" @remove="removeEmail" />
+            <email-list :emails="emailsToShow" @remove="removeEmail" />
          
         </section>
     `,
