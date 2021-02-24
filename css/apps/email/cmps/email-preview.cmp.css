@@ -11,3 +11,16 @@
     justify-content: space-between;
     border-radius: 4px;
 }
+
+.star-fill {
+    content: '★';
+    /* ⭐ */
+}
+
+.star-un-fill {
+    /* content: '★'; */
+    content: '☆';
+}
+
+
+/* content: '☆'; */

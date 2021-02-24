@@ -2,15 +2,27 @@ export default {
     props: ['email'],
     template: `
     <section class="email-preview">
-            <p>{{email.id}}</p>
             <p>{{email.subject}}<p/>  
-           <p>{{showSentAt}}</p>
+            <p>{{showSentAt}}</p>
             <p>{{email.sendName}} <p/> 
-            <span>⭐</span>
+            <span v-on:click="toggleStarMark"  v-bind:class="setClassName">☆</span>
             <input type="checkbox" />
     </section>
     `,
+    data() {
+        return {
+            isStarMark: false
+        }
+    },
+    methods: {
+        toggleStarMark() {
+            this.isStarMark = !this.isStarMark;
+        },
+    },
     computed: {
+        setClassName() {
+            return this.isDark ? 'star-fill' : 'star-un-fill';
+        },
         showSentAt() {
 
             // convert unix timestamp to milliseconds
@@ -31,4 +43,4 @@ export default {
 
 
 
-/*     <div class="email-preview-container">   </div>  <h2>{{email.sendName}}</h2>   <p>{{email.subject}}</p> */
+/*     <div class="email-preview-container">   </div>  <h2>{{email.sendName}}</h2>   <p>{{email.subject}}</p>   <p>{{email.id}}</p>*/
