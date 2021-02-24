@@ -19,8 +19,6 @@
 }
 
 
-
-
 .app-main {
     background-color: lightblue;
     min-height: 90vh;
@@ -38,3 +36,9 @@
 
 
 
+/* FOOTER */
+
+footer {
+    background-color: lightgreen;
+    padding: 10px;
+}

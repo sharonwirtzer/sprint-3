@@ -1,7 +1,7 @@
 export default {
     template: `
     <header class="app-header">
-        <div class="logo"><h1>Books</h1></div>
+        <div class="logo"><h1>Apsus</h1></div>
         <nav>
            <router-link active-class="active-link" to="/" exact>Home</router-link> |
            <router-link to="/email">Email</router-link> |
