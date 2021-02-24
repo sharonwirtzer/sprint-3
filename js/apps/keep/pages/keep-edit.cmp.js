@@ -6,10 +6,9 @@ export default {
         <form @submit.prevent="save">
             <input type="text" placeholder="title" v-model="keepToEdit.title">
             <textarea rows="15" cols="30" name="comment" form="usrform" placeholder="Take a note..." v-model="keepToEdit.title"></textarea>
-
-
+           
+            <button >Save!</button>
             
-            <button>Save!</button>
         </form>
    </section>
     `,
@@ -22,6 +21,10 @@ export default {
         save(){
             keepService.save(this.keepToEdit)
             this.keepToEdit = keepService.getEmptykeep()
+        },
+
         }
-    }
+      
+    
 }
+

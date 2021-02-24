@@ -1,13 +1,15 @@
 export default {
     props:['keep'],
     template:`
-    <section class="keep-preview">
-        <p>title: {{keep.title}}</p>
+    <section class="keep-preview"  style="padding: 30px;" >
+        <p> {{keep.title}}</p>
         <img :src="keep.thumbnail" /> 
-        <p>note: {{keep.note}}</p>
+        <p> {{keep.note}}</p>
         
         
     </section>
     `,
 
 }
+
+
