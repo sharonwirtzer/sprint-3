@@ -3,10 +3,10 @@ import { keepService } from '../services/keep-service.js'
 export default {
     template: `
    <section class="keep-edit">
-        <h3>keep Add</h3>
+        <h3>Take a note...</h3>
         <form @submit.prevent="save">
             <input type="text" placeholder="title" v-model="keepToEdit.title">
-            <input type="number" placeholder="price" v-model.number="keepToEdit.price">
+            <input type="text" placeholder="note" v-model="keepToEdit.title">
             <button>Save!</button>
         </form>
    </section>

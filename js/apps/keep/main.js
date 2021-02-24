@@ -1,4 +1,4 @@
-import keepApp from './pages/keep-app.cmp.js'
+/* import keepApp from './pages/keep-app.cmp.js'
 import appHeader from './cmps/app-header.cmp.js'
 
 const options = {
@@ -17,3 +17,4 @@ const options = {
 }
 
 const app = new Vue(options)
+ */

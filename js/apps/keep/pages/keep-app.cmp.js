@@ -1,15 +1,7 @@
-/* export default {
-    template: `
-    <section class="keep app-main">
-        <h1>keep</h1>
-    </section>
-    `
-} */
 
 import { keepService } from '../services/keep-service.js'
 import keepFilter from '../cmps/keep-filter.cmp.js'
 import keepList from '../cmps/keep-list.cmp.js'
-import keepDetails from '../pages/keep-details.cmp.js'
 import keepEdit from '../pages/keep-edit.cmp.js'
 
 export default {
@@ -17,7 +9,6 @@ export default {
         <section class="keep app-main">
             <keep-filter @filtered="setFilter" />
             <keep-list :keeps="keepsToShow" @remove="removekeep" @selected="selectkeep" />
-            <keep-details v-if="selectedkeep" :keep="selectedkeep" @close="selectedkeep = null" />
             <keep-edit />
         </section>
     `,
@@ -52,7 +43,6 @@ export default {
     components: {
         keepFilter,
         keepList,
-        keepDetails,
         keepEdit,
     }
 }

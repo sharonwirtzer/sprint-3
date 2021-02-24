@@ -29,7 +29,7 @@ function save(keep) {
 }
 
 function getEmptykeep() {
-    return { id: '', title: '', price: 0}
+    return { id: '', title: '', note: ''}
 }
 
 function _createkeeps() {
@@ -40,11 +40,11 @@ function _createkeeps() {
     return keeps;
 }
 
- function _createkeep(title, price = 250) {
+ function _createkeep(title, note ) {
     const keep = {
         id: utilService.makeId(),
         title,
-        price,
+        note,
     }
     return keep;
 } 
