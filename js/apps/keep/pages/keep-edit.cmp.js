@@ -6,7 +6,7 @@ export default {
         <h3>Take a note...</h3>
         <form @submit.prevent="save">
             <input type="text" placeholder="title" v-model="keepToEdit.title">
-            <input type="text" placeholder="note" v-model="keepToEdit.title">
+            <textarea rows="15" cols="30" name="comment" form="usrform" placeholder="Take a note..." v-model="keepToEdit.title"></textarea>
             <button>Save!</button>
         </form>
    </section>

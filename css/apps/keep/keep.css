@@ -1,0 +1,27 @@
+
+
+
+* {
+    box-sizing: border-box;
+    margin: 0px;
+}
+
+
+
+
+
+
+.note-area {
+    padding-left: 20px;
+    position: absolute;
+    width: 100%;
+  }
+  .fade-enter-active, .fade-leave-active {
+    transition: opacity .2s ease-in, transform .2s ease-in;
+  }
+  .fade-enter, .fade-leave-to {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+
+
