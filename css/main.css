@@ -10,9 +10,10 @@ body {
 
 /* HEADER */
 
-.app-header {
-    background-color: lightgreen;
-    padding: 20px;
+.home {
+    background-color: rgb(35, 37, 65);
+    color: aliceblue;
+    padding: 10px;
     height: 5vh;
     display: flex;
     justify-content: space-between;
