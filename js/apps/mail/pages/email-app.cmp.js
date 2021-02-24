@@ -10,7 +10,7 @@ export default {
     // <router-link to="/mail/edit">Add a new email!</router-link>
 
     template: `
-        <section class="email-app">
+        <section class="email app-main">
             <email-filter @filtered="setFilter" />
             <email-compose/>
             <email-list :mails="emailsToShow" @remove="removeEmail" />
