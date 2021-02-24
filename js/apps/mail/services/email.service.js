@@ -1,10 +1,11 @@
-// import { utilService } from './util.service.js'
+// import { utilService } from './services/util.service.js'
+import { utilService } from '../services/util.service.js'
 // import { storageService } from './async-storage.service.js'
 
 const MAILS_KEY = 'mails';
 const gmails = _createMails();
 
-export const mailService = {
+export const emailService = {
     query,
     remove,
     save,
