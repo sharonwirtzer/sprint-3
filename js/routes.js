@@ -5,7 +5,7 @@ import emailApp from './apps/mail/pages/email-app.cmp.js';
 // import emailApp from './apps/keep/
 // import bookEdit from './pages/book-edit.cmp.js'
 // import bookDetails from './pages/book-details.cmp.js'
-// import about from './pages/about.cmp.js'
+import about from './pages/about.cmp.js';
 
 const routes = [{
         path: '/',
