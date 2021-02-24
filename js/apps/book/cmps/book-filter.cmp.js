@@ -6,7 +6,7 @@ export default {
                         <input type="text" placeholder="name" v-model="filterBy.byName">
                         <input type="number" placeholder="min price" v-model.number="filterBy.fromPrice">
                         <input type="number" placeholder="max price" v-model.number="filterBy.toPrice">
-                        <button>Search...</button>
+                        <button>Search</button>
                     </form>
                 </section>
     `,
