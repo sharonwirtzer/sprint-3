@@ -1,0 +1,128 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    color: white;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.app-main {
+    background-color: #0B0C10;
+    min-height: 90vh;
+}
+
+
+/*HEADER*/
+
+.app-header {
+    background-color: #1F2833;
+    padding: 10px;
+    height: 5vh;
+    /* text-align: center; */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    ;
+}
+
+
+/* APP */
+
+.book-app {
+    background-color: #0B0C10;
+    min-height: 90vh;
+}
+
+
+/* FILTER */
+
+.book-filter {
+    /* background-color: rgb(190, 233, 204); */
+    padding: 10px;
+    margin: 10px;
+    text-align: center;
+    background-color: #C5C6C7;
+}
+
+
+/*LIST*/
+
+.book-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+
+/*PREVIE*/
+
+.book-preview-container {
+    width: 300px;
+    height: 350px;
+    background-color: #82b3af;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    margin: 10px;
+    justify-content: space-between;
+    text-align: center;
+}
+
+img {
+    width: 50%;
+}
+
+
+/*DETAILS*/
+
+.book-details {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: #41B3A3;
+    box-shadow: 0px 2px 7px 0px #45A29E;
+    border-radius: 12px;
+    padding: 20px;
+    width: 600px;
+    margin: 0 auto;
+}
+
+.btn-close-details {
+    width: 20px;
+}
+
+.authors-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.book-category-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+
+/* FOOTER */
+
+footer {
+    background-color: #1F2833;
+    padding: 10px;
+    text-align: center;
+}
+
+
+/*CLASSES*/
+
+.red {
+    color: red;
+}
+
+.green {
+    color: green;
+}
