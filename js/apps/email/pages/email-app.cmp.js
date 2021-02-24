@@ -1,9 +1,11 @@
 /*Gets emails from service (asyc) */
 
 
-import { emailService } from '../services/email.service.js'
-import emailFilter from '../cmps/email-filter.cmp.js'
-import emailList from '../cmps/email-list.cmp.js'
+import { emailService } from '../services/email.service.js';
+import emailFilter from '../cmps/email-filter.cmp.js';
+import emailList from '../cmps/email-list.cmp.js';
+import emailCompose from '../cmps/email-compose.cmp.js';
+import emailPreview from '../cmps/email-preview.cmp.js';
 
 export default {
 
@@ -54,5 +56,7 @@ export default {
     components: {
         emailFilter,
         emailList,
+        emailCompose,
+        emailPreview
     }
 }

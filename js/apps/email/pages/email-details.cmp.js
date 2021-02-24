@@ -1,5 +1,5 @@
 import longText from '../cmps/long-text.cmp.js'
-import { emailDetailsService } from '../services/emailDetails.service.js'
+// import { emailDetailsService } from '../services/emailDetails.service.js'
 
 export default {
     props: ['email'],
@@ -13,7 +13,8 @@ export default {
 
     },
     components: {
-        longText
+        longText,
+        // emailDetailsService
     }
 
 }
