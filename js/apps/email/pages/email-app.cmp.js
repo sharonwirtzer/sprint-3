@@ -7,8 +7,10 @@ import emailList from '../cmps/email-list.cmp.js';
 import emailCompose from '../cmps/email-compose.cmp.js';
 import emailPreview from '../cmps/email-preview.cmp.js';
 
-export default {
 
+
+export default {
+    //   <email-preview/>
     // <router-link to="/mail/edit">Add a new email!</router-link>
 
     template: `
@@ -16,7 +18,7 @@ export default {
             <email-filter @filtered="setFilter" />
             <email-compose/>
             <email-list :mails="emailsToShow" @remove="removeEmail" />
-            <email-preview/>
+         
         </section>
     `,
     data() {
@@ -28,7 +30,8 @@ export default {
     methods: {
         loadEmails() {
             emailService.query()
-                .then(emails => this.mails = emails)
+                .then(emails => this.emails = emails)
+
         },
         removeEmail(emailId) {
             emailService.remove(emailId)

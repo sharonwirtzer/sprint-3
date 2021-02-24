@@ -1,15 +1,15 @@
 import emailPreview from './email-preview.cmp.js'
-
+debugger;
 export default {
-    props: ['mails'],
+    props: ['emails'],
     template: `
-    <ul class="mail-list">
-        <li v-for="mail in emails" :key="mail.id" class="mail-preview-container" >
-            <mail-preview :mail="mail" @click.native="logId(mail.id)" />
+    <ul class="email-list">
+        <li v-for="email in emails" :key="email.id" class="email-preview-container" >
+            <email-preview :email="email" @click.native="logId(email.id)" />
             <div class="btns-container">
-                <button @click="remove(mail.id)">X</button>
-                <router-link :to="'/mail/'+mail.id">Details</router-link>
-                <router-link :to="'/mail/edit/'+mail.id">Edit</router-link>
+                <button @click="remove(email.id)">X</button>
+                <router-link :to="'/email/'+email.id">Details</router-link>
+                <router-link :to="'/email/edit/'+email.id">Edit</router-link>
             </div>
         </li>
     </ul>

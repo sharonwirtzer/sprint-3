@@ -10,6 +10,7 @@ const routes = [{
         component: homePage,
     },
     {
+
         path: '/email',
         component: emailApp
     },

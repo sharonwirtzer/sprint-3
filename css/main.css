@@ -1,3 +1,6 @@
+/* Including one css file into other */
+
+@import "/css/apps/email/cmps/email-preview.cmp.css";
 * {
     box-sizing: border-box;
     margin: 0px;

@@ -21,7 +21,7 @@ export default {
     },
     methods: {
         setFilter() {
-            debugger
+
             this.$emit('filtered', {...this.filterBy });
         }
     }

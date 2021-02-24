@@ -33,12 +33,12 @@ export default {
         addEmptyArr() {
 
             for (let i = 0; i < this.books.length; i++) {
-                debugger
+
                 const element = array[i];
                 var emptyArr = [];
                 element['emptyArr'] = emptyArr;
             }
-            debugger
+
             // this.books.forEach(element => {
             //     var emptyArr = [];
             //     element['emptyArr'] = emptyArr;
