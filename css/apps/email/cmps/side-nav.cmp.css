@@ -1,0 +1,17 @@
+.side-nav {
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    margin-right: 15px;
+    background-color: rgb(173, 216, 175);
+    position: fixed;
+    z-index: 2;
+    top: 175px;
+    transform: translate(1000px);
+}
+
+.side-nav button {
+    width: 500px;
+    margin-top: 15px;
+}

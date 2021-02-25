@@ -1,11 +1,12 @@
 /*Gets emails from service (asyc) */
 
-
 import { emailService } from '../services/email.service.js';
 import emailFilter from '../cmps/email-filter.cmp.js';
 import emailList from '../cmps/email-list.cmp.js';
-import emailCompose from '../cmps/email-compose.cmp.js';
+import emailCompose from '../pages/email-compose.cmp.js';
 import emailPreview from '../cmps/email-preview.cmp.js';
+import sideNav from '../cmps/side-nav.cmp.js';
+
 // import emailStatus from '../cmps/email-status.cmp.js';
 
 
@@ -13,13 +14,14 @@ import emailPreview from '../cmps/email-preview.cmp.js';
 export default {
     //   <email-preview/>
     // <router-link to="/mail/edit">Add a new email!</router-link>
-    // <email-compose/> ===>  <router-link to="/email/edit">Add a new email!</router-link>????
+    // <email-e/> ===>  <router-link to="/email/edit">Add a new email!</router-link>????
+    //<router-link to="/email/add">+Compose</router-link> ===> in side-nav
 
     template: `
             <section class="email app-main">
                 <email-filter @filtered="setFilter" @sorted="setSort" />
                 <email-list :emails="emailsToShow" @remove="removeEmail"  @read="markEmailRead"/> 
-                <router-link to="/email/add">+Compose</router-link>
+                <side-nav></side-nav>
             </section>`,
     data() {
 
@@ -120,8 +122,10 @@ export default {
     components: {
         emailFilter,
         emailList,
+        sideNav,
         emailCompose,
-        emailPreview
+        emailPreview,
+
         // emailStatus
     }
 }
