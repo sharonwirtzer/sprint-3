@@ -1,8 +1,8 @@
 export const keepList =[
     {
       "id": "OXeMG8wNskc",
-      "title": "Groceries",
-      "note": "- 1kg tomatoes\n- 1kg tomatoes  ",
+      "title": "buy food for louis",
+      "img": "/img/2.jpeg"
 
     },
     {
