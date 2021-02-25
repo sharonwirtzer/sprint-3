@@ -68,3 +68,26 @@ input[type="color"]{
   border-color: transparent;
   align-items: center;
 }
+
+@media screen and (max-width:600px) {
+  .keep-list{
+      display: flex;
+      flex-direction: column;
+  }
+
+  .keep-filter{
+margin: 0%;
+    width: 100%;
+  }
+
+  .note-area{
+    margin: 0%;
+        width: 100%;
+      }
+
+      .text-area{
+
+        width: 60%;
+      }
+
+}
