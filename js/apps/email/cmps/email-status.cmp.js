@@ -7,6 +7,7 @@ export default {
         </section>`,
 
     computed: {
+
         getUnReadCount() {
             console.log('emails in status:', this.emails)
             return this.emails.filter(email => !email.isRead).length;
