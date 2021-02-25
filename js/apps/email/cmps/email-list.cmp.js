@@ -1,49 +1,63 @@
-import emailPreview from './email-preview.cmp.js'
+import emailPreview from './email-preview.cmp.js';
+import emailStatus from '../cmps/email-status.cmp.js';
 //@click.native="logId(email.id)" was on <email-preview> component
 
 export default {
     props: ['emails'],
     template: `
-    <section>
-        <div>
-            <span>unread email: {{unReadEmailCount}}</span>
-        </div>
-        <ul class="email-list" >
-            <li v-for="email in emails" :key="email.id" class="email-preview-container">
-                <email-preview :email="email"  @click.native="markEmailAsRead(email.id)"/>
+    <section>  
+
+        <email-status :emails="emails"></email-status>
+
+        <div class="email-list" >
+            <router-link class="email-preview-container" v-for="email in emails" :key="email.id"  :to="'/email/'+email.id" >
+                <email-preview :email="email"  @click.native="markEmailAsRead2(email.id)"/>
                 <button @click="remove(email.id)">X</button>
-            </li>
-        </ul>
+            </router-link >
+        </div>
     </section>
- 
-    
-    `,
-    data() {
-        return {
-            unReadEmailCount: 0
-        }
-    },
+
+    `
+
+    // template: `
+    // <section>  
+    //     <email-status :emails="emails"></email-status>
+    //     <ul class="email-list" >
+    //         <li v-for="email in emails" :key="email.id" class="email-preview-container">
+    //             <email-preview :email="email"  @click.native="markEmailAsRead(email.id)"/>
+    //             <button @click="remove(email.id)">X</button>
+    //         </li>
+    //     </ul>
+    // </section>
+
+    // `,
+    ,
+
     methods: {
+
         remove(emailId) {
             this.$emit('remove', emailId)
         },
         logId(emailId) {
             console.log('Id is', emailId);
         },
-        counteUnReadEmail() {
-            this.unReadEmailCount++;
-        },
-        markEmailAsRead(emailId) {
-            debugger
+        // counteUnReadEmail() {
+        //     this.unReadEmailCount++;
+        // },
+        markEmailAsRead2(emailId) {
+            //this section pass to details componenets!!!!!
+
             this.$emit('read', emailId); //father is email-app
         }
     },
     created() {
+
         console.log('email-list: ', this.emails);
     },
 
     components: {
-        emailPreview
+        emailPreview,
+        emailStatus
     }
 }
 

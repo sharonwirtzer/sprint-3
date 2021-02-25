@@ -11,7 +11,8 @@ export const emailService = {
     save,
     getEmptyemail,
     getById,
-    getNextemailId
+    getNextemailId,
+    markRead
 }
 
 function getNextemailId(emailId) {
@@ -25,6 +26,14 @@ function query() {
 
 function remove(emailId) {
     return storageService.remove(EMAILS_KEY, emailId)
+}
+
+function markRead(emailId) {
+    // return storageService.mark(EMAILS_KEY, emailId) // to add this func to the storage ? ? ? ? (inbar)
+    var idx = gEmails.findIndex(email => email.id === emailId);
+    if (gEmails[idx].isRead) return;
+    gEmails[idx].isRead = true;
+    return Promise.resolved()
 }
 
 function save(email) {
@@ -44,11 +53,11 @@ function _createEmails() {
     let emails = utilService.loadFromStorage(EMAILS_KEY)
     if (!emails || !emails.length) {
         emails = []
-        emails.push(_createEmail('Puki1', 'Wassap1?', 'Pick up1!', false));
-        emails.push(_createEmail('Puki2', 'Wassap2?', 'Pick up2!', true));
-        emails.push(_createEmail('Puki3', 'Wassap3?', 'Pick up3!', true));
-        emails.push(_createEmail('Puki4', 'Wassap4?', 'Pick up4!', false));
-        emails.push(_createEmail('Puki5', 'Wassap5?', 'Pick up5!', false));
+        emails.push(_createEmail('Puki', 'Wassap1?', 'Pick up! I need to ask you something very important', false));
+        emails.push(_createEmail('Bob', 'Wassap2?', 'Pick up! I need to ask you something very important', true));
+        emails.push(_createEmail('David', 'Wassap3?', 'Pick up! I need to ask you something very important', true));
+        emails.push(_createEmail('Avi', 'Wassap4?', 'Pick up! I need to ask you something very important', false));
+        emails.push(_createEmail('Arik', 'Wassap5?', 'Pick up! I need to ask you something very important', false));
         utilService.saveToStorage(EMAILS_KEY, emails)
     }
     return emails;

@@ -1,13 +1,16 @@
 export default {
     props: ['email'],
-    template: `<section class="email-preview" :class="email.isRead? 'bold' : 'unBold'">
-                    <p>{{email.id}}</p>
-                    <p>{{timeToShow}}</p>
-                    <p>{{email.subject}}<p/>  
-                    <p>{{email.sendName}} <p/> 
-                    <span v-on:click="toggleStarMark" :class="setClassName">☆</span>
-                    <input type="checkbox" />
-                </section>`,
+    template: `
+        <section class="email-preview" :class="email.isRead? 'bold' : 'unBold'">
+        <p>{{email.isRead}}</p>
+            <p>{{email.id}}</p>
+            <input type="checkbox" />
+            <span v-on:click="toggleStarMark" :class="setClassName">☆</span>
+            <p>{{email.sendName}}<p/> 
+            <p>{{email.subject}}<p/>
+            <p>{{getBodyTxtToShow}}</p> 
+            <p>{{timeToShow}}</p>
+        </section>`,
     data() {
         return {
             isStarMark: false
@@ -23,6 +26,11 @@ export default {
         setClassName() {
             //find another name???
             return this.isStarMark ? 'star-fill' : 'star-un-fill';
+        },
+        getBodyTxtToShow() {
+            const SIZE = 15;
+            const strToShow = this.email.body.length <= SIZE ? this.email.body : `${ this.email.body.substr(0, SIZE-1)}...`
+            return strToShow
         },
 
 
