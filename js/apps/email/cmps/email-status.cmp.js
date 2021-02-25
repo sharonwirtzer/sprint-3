@@ -2,7 +2,7 @@ export default {
 
     props: ['emails'],
     template: `
-        <section>
+        <section v-if="emails">
             <span>You got {{getUnReadCount}} unread emails</span>
         </section>`,
 
