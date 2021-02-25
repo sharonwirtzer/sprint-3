@@ -10,7 +10,7 @@ export default {
         <section class="keep app-main">
         <keep-filter @filtered="setFilter" />
          <keep-edit />
-            <keep-list :keeps="keepsToShow" @remove="removekeep" @selected="selectkeep" /><!--  -->
+            <keep-list :keeps="keepsToShow" @remove="removekeep" @selected="selectkeep" />
         </section>
     `,
     data() {
