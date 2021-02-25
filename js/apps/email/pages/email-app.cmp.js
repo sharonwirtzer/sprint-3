@@ -56,18 +56,25 @@ export default {
     },
     computed: {
         emailsToShow() {
-            if (!this.filterBy || (this.filterBy.byStatus === 'All')) return this.emails;
+
+            if (!this.filterBy) return this.emails;
 
             var { byTxt } = this.filterBy;
+
             byTxt = byTxt.toLowerCase();
             var emailsToShow = this.emails.filter(email => {
                 return (email.body.toLowerCase().includes(byTxt)) ||
-                    (email.subject.toLowerCase().includes(byTxt))
-                    //need to add filter by read/unread
+                    (email.subject.toLowerCase().includes(byTxt)) ||
+                    (email.sendName.toLowerCase().includes(byTxt))
+
             })
+
+
             if (this.filterBy.byStatus === 'Unread') emailsToShow = emailsToShow.filter(email => !email.isRead);
-            else emailsToShow = emailsToShow.filter(email => email.isRead);
+            // else emailsToShow = emailsToShow.filter(email => email.isRead);
+            if (this.filterBy.byStatus === 'Read') emailsToShow = emailsToShow.filter(email => email.isRead);
             return emailsToShow;
+
         }
     },
     created() {
