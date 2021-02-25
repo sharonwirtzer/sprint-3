@@ -33,11 +33,15 @@
 }
 
 .note-area {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  margin: 10px;
-  padding: 5px;
+ 
+ 
+  margin: 30px 220px 50px; 
+  background-color: rgb(245, 246, 247);
+  font-size: 17px;
+  width: 60%;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px #ccc;
+ align-items: center
 
 }
 
@@ -59,6 +63,8 @@ input[type="color"]{
   font-size: 17px;
   border: 1px solid grey;
   /* float: left; */
-  width: 100%;
+  width: 80%;
   border-radius: 5px;
+  border-color: transparent;
+  align-items: center;
 }

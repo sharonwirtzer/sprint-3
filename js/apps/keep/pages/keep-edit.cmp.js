@@ -5,14 +5,16 @@ export default {
    <section class="note-area">
         <form @submit.prevent="save">
        
-            <input type="text"  class="text-area" placeholder="Take a note..." v-model="keepToEdit.title">
+            <input type="text" class="text-area" placeholder="Take a note..." v-model="keepToEdit.title"    >
+            <button title="New  list"><img src="img/10.png" height="30" width="30" /></button>
+            <button title="New note with image"><img src="img/11.png" height="30" width="30" /></button>
+            <button title="Save"><img src="img/8.png" height="30" width="30" /></button>
 
-           <!--  <textarea rows="15" cols="30" name="comment" form="usrform" placeholder="Take a note..." v-model="keepToEdit.title"></textarea> -->
-           
-            <button >Save!</button>
             
         </form>
-   </section>
+      </section>   
+        <!--  <textarea rows="15" cols="30" name="comment"      form="usrform" placeholder="Take a note..." v-model="keepToEdit.title"></textarea>  -->
+  
     `,
     data() {
         return {
@@ -20,13 +22,13 @@ export default {
         }
     },
     methods: {
-        save(){
+        save() {
             keepService.save(this.keepToEdit)
             this.keepToEdit = keepService.getEmptykeep()
         },
 
-        }
-      
-    
+    }
+
+
 }
 

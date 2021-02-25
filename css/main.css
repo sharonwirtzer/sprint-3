@@ -17,6 +17,8 @@
 
 * button {
     cursor: pointer;
+    border-color: transparent;
+    background-color: transparent;
 }
 
 
@@ -30,7 +32,9 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+   color: rgb(224, 200, 62);
 }
+
 
 .app-main {
     background-color: rgb(225, 234, 238);
