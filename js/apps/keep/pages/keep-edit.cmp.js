@@ -4,7 +4,7 @@ export default {
     template: `
    <section class="note-area">
         <form @submit.prevent="save">
-            <input type="text" placeholder="title" v-model="keepToEdit.title">
+            <input type="text"  placeholder="title" v-model="keepToEdit.title">
             <textarea rows="15" cols="30" name="comment" form="usrform" placeholder="Take a note..." v-model="keepToEdit.title"></textarea>
            
             <button >Save!</button>
@@ -14,7 +14,7 @@ export default {
     `,
     data() {
         return {
-            keepToEdit: keepService.getEmptykeep()
+            keepToEdit: keepService.getEmptykeep(),
         }
     },
     methods: {

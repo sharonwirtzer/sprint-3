@@ -4,9 +4,12 @@
 }
 
 .keep-preview {
-  height: 200px;
-  background-color: rgb(191, 81, 212);
-  width: 200px;
+  background: #fff;
+  border-radius: 2px;
+  box-shadow: 0 2px 5px #ccc;
+  padding: 10px;
+  margin: 8px 0;
+  width: 240px;
 }
 
 
@@ -41,4 +44,12 @@
 
 ul {
   list-style-type: none;
+}
+
+input[type="color"]{
+  width:40px;
+  border:1px solid black;
+  margin:0px;
+  padding:0px !important;
+  height:40px;
 }

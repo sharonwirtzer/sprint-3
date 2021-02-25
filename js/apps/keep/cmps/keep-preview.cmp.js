@@ -5,11 +5,16 @@ export default {
         <p> {{keep.title}}</p>
         <img :src="keep.thumbnail" /> 
         <p> {{keep.note}}</p>
-        
+
+     
         
     </section>
     `,
-
+   data() {
+        return {
+              color: '#673AB7'
+        }
+    },
 }
 
 
