@@ -9,6 +9,7 @@ export default {
 
         <email-status :emails="emails"></email-status>
 
+        
         <div class="email-list-container" v-for="email in emails" :key="email.id">
             <router-link class="email-preview-container"   :to="'/email/'+email.id" >
                 <email-preview :email="email"  @click.native="markEmailAsRead2(email.id)"/>
