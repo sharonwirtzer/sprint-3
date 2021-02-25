@@ -59,6 +59,11 @@ function _createEmails() {
         emails.push(_createEmail('David', 'Wassap3?', 'Pick up! I need to ask you something very important', true));
         emails.push(_createEmail('Avi', 'Wassap4?', 'Pick up! I need to ask you something very important', false));
         emails.push(_createEmail('Arik', 'Wassap5?', 'Pick up! I need to ask you something very important', false));
+        emails.push(_createEmail('me', 'Wassap1?', 'Pick up! I need to ask you something very important', false, 'Dan'));
+        emails.push(_createEmail('me', 'Wassap2?', 'Pick up! I need to ask you something very important', true, 'Micha'));
+        emails.push(_createEmail('me', 'Wassap3?', 'Pick up! I need to ask you something very important', true, 'Golan'));
+        emails.push(_createEmail('me', 'Wassap4?', 'Pick up! I need to ask you something very important', false, 'Shlomi'));
+        emails.push(_createEmail('me', 'Wassap5?', 'Pick up! I need to ask you something very important', false, 'David'));
         utilService.saveToStorage(EMAILS_KEY, emails)
     }
     return emails;
@@ -71,12 +76,14 @@ function getEmptyEmail() {
         subject: '',
         body: '',
         isRead: false,
-        sentAt: ''
+        sentAt: '',
+        sendTo: ''
+
     }
 }
 
 
-function _createEmail(sendName, subject, body, isRead) {
+function _createEmail(sendName, subject, body, isRead, sendTo) {
     const email = getEmptyEmail();
     email.id = utilService.makeId();
     email.sendName = sendName;
@@ -85,6 +92,7 @@ function _createEmail(sendName, subject, body, isRead) {
     email.isRead = isRead;
     // email.sentAt = Date.now();
     email.sentAt = setDate();
+    email.sendTo = sendTo;
 
     return email;
 }

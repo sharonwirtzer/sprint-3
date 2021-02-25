@@ -7,13 +7,25 @@
 /* DETAILS */
 
 .email-details {
-    background-color: lightcoral;
+    background-color: rgb(228, 207, 207);
     padding: 10px;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    /* justify-content: space-around; */
     font-size: 25px;
     min-height: 90vh;
+}
+
+.email-details h1 {
+    margin-top: 15px;
+}
+
+.email-details h5 {
+    margin-top: 15px;
+}
+
+.email-details p {
+    margin-top: 15px;
 }
 
 

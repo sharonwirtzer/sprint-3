@@ -1,12 +1,15 @@
-@import "/css/apps/email/cmps/email-compose.cmp.css";
+@import "/css/apps/email/pages/email-compose.cmp.css";
 @import "/css/apps/email/cmps/‏‏email-list.cmp.css";
+
+/* @import "/css/apps/email/cmps/side-nav.cmp.css"; */
+
 
 /* PREVIEW */
 
 .email-preview-container {
-    max-width: 800px;
-    min-height: 100px;
-    border: 1px solid rgb(238, 127, 127);
+    max-width: 900px;
+    min-height: 50px;
+    border: 3px solid rgb(27, 17, 17);
     display: flex;
     flex-direction: column;
     padding: 10px;

@@ -6,10 +6,9 @@ import { emailService } from '../services/email.service.js';
 
 export default {
     // props: ['email'],
-    template: `<section class="email-details">
-                    <h1>  in details!  </h1> 
-                    <h2>{{email.sendName}}</h2> 
-                    <p>{{email.subject}}</p>
+    template: `<section v-if="email" class="email-details">
+                    <h1>{{email.subject}}</h1>
+                    <h5>{{email.sendName}}</h5> 
                     <p>{{email.body}}</p> 
                     <p>{{email.isRead}}</p> 
                   
@@ -20,7 +19,8 @@ export default {
     },
     data() {
         return {
-            email: null
+            email: null,
+            nextCarId: 'vXmNp'
 
         }
     },
@@ -33,12 +33,13 @@ export default {
         //         })
         // }
         loademail() {
+
             const id = this.$route.params.emailId
             emailService.getById(id)
                 .then(email => {
                     this.email = email
-                    this.nextemailId = emailService.getNextemailId(email.id) //???
-                    this.email.isRead = true;
+                    this.nextEmailId = emailService.getnextEmailId(email.id)
+                        // this.email.isRead = true;
                 })
 
         }
@@ -48,6 +49,7 @@ export default {
         // console.log('in details page');
         // const emailId = this.$route.params.emailId; //extract the email id from the url
         // this.markEmailAsRead(emailId);
+
         this.loademail();
     },
     components: {
