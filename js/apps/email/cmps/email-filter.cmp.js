@@ -6,7 +6,7 @@ export default {
 
 
     template: `
-    <section class="mail-filter">
+    <section class="email-filter">
         <div>
             <label> Search a mail: </label>    
             <input ref="mailInput" type="text" @input="setFilter" placeholder="Search mail" v-model="filterBy.byTxt">
@@ -19,9 +19,11 @@ export default {
             </select>               
         </div>
         <div >
-            <select @change="setSort" v-model="SortBy.byType">
-                <option value="byTitle">By Title</option>
-                <option value="byDate">By Date</option>
+            <select @change="setSort" v-model="sortBy">
+                <option value="Dates Decending">Dates Decending</option>
+                <option value="Dates Ascending">Dates Ascending</option>
+                <option value="Titles Decending">Titles Decending</option>
+                <option value="Titles Ascending">Titles Ascending</option>
             </select>               
          </div>
        
@@ -34,15 +36,15 @@ export default {
                 byStatus: 'All',
                 byTxt: ''
             },
-            SortBy: ''
+            sortBy: 'Dates Decending'
         }
     },
     methods: {
         setFilter() {
-            this.$emit('filtered', {...this.filterBy }); //used to make a copy, cuz the son cant change
+            this.$emit('filtered', {...this.filterBy });
         },
         setSort() {
-            this.$emit('sorted', SortBy); //used to make a copy, cuz the son cant change
+            this.$emit('sorted', this.sortBy);
         }
     },
     created() {

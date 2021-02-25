@@ -2,6 +2,12 @@
 
 @import "/css/apps/email/cmps/email-filter.cmp.css";
 @import "/css/apps/email/cmps/email-preview.cmp.css";
+
+/* @import "/css/apps/email/cmps/‏‏email-list.cmp.css"; */
+
+
+/* @import "/css/apps/email/cmps/email-compose.cmp.css"; need to be here ? include in preview...*/
+
 @import "/css/apps/email/pages/email-details.cmp.css";
 @import "/css/apps/keep/keep.css";
 * {

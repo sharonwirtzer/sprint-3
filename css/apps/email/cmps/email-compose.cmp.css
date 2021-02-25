@@ -1,0 +1,14 @@
+/* COMPOSE */
+
+.email-compose-container {
+    width: 30%;
+    /* height: 100px; */
+    border: 2px solid rgb(167, 52, 182);
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    margin: 10px;
+    justify-content: space-between;
+    border-radius: 4px;
+    cursor: pointer;
+}

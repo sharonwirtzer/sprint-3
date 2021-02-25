@@ -5,11 +5,12 @@ import { storageService } from '../../../services/async-storage.service.js'
 const EMAILS_KEY = 'emails';
 const gEmails = _createEmails();
 
+
 export const emailService = {
     query,
     remove,
     save,
-    getEmptyemail,
+    getEmptyEmail,
     getById,
     getNextemailId,
     markRead
@@ -63,18 +64,52 @@ function _createEmails() {
     return emails;
 }
 //new Date()
-function getEmptyemail() {
-    return { id: '', sendName: '', subject: '', body: '', isRead: false, sentAt: Date.now() }
+function getEmptyEmail() {
+    return {
+        id: '',
+        sendName: '',
+        subject: '',
+        body: '',
+        isRead: false,
+        sentAt: ''
+    }
 }
 
 
 function _createEmail(sendName, subject, body, isRead) {
-    const email = getEmptyemail();
+    const email = getEmptyEmail();
     email.id = utilService.makeId();
     email.sendName = sendName;
     email.subject = subject;
     email.body = body;
     email.isRead = isRead;
-    email.sentAt = Date.now();
+    // email.sentAt = Date.now();
+    email.sentAt = setDate();
+
     return email;
+}
+
+function setDate() {
+    var date = utilService.getRandomDate(new Date(2012, 0, 1), new Date()); //(start,end)
+    // var date = new Date(); for check if it will return correctly (only the time)
+
+    var hour = date.getHours() < 10 ? '0' + date.getHours() : date.getHours();
+    var minutes = date.getMinutes() < 10 ? '0' + date.getMinutes() : date.getMinutes();
+
+    var year = date.getFullYear();
+    var month = date.getMonth() + 1; // : January = 0; February = 1, etc.
+    var day = date.getDate();
+
+    if ((year === (new Date().getFullYear())) &&
+        (month === ((new Date().getMonth()) + 1)) &&
+        (day === (new Date().getDate()))) {
+        return hour + ' : ' + minutes;
+    }
+
+    return day + '.' + month + '.' + year + ', ' + hour + ':' + minutes;
+
+
+
+
+
 }

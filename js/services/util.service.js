@@ -1,7 +1,8 @@
 export const utilService = {
     saveToStorage,
     loadFromStorage,
-    makeId
+    makeId,
+    getRandomDate
 }
 
 function saveToStorage(key, value) {
@@ -20,4 +21,8 @@ function makeId(length = 5) {
         txt += possible.charAt(Math.floor(Math.random() * possible.length));
     }
     return txt;
+}
+
+function getRandomDate(start, end) {
+    return new Date(start.getTime() + Math.random() * (end.getTime() - start.getTime()));
 }

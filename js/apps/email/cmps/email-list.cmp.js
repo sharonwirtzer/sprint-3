@@ -9,7 +9,7 @@ export default {
 
         <email-status :emails="emails"></email-status>
 
-        <div class="email-list" >
+        <div class="email-list-container">
             <router-link class="email-preview-container" v-for="email in emails" :key="email.id"  :to="'/email/'+email.id" >
                 <email-preview :email="email"  @click.native="markEmailAsRead2(email.id)"/>
                 <button @click="remove(email.id)">X</button>
@@ -18,6 +18,21 @@ export default {
     </section>
 
     `
+
+    // ` last backup
+    // <section>  
+
+    //     <email-status :emails="emails"></email-status>
+
+    //     <div class="email-list" >
+    //         <router-link class="email-preview-container" v-for="email in emails" :key="email.id"  :to="'/email/'+email.id" >
+    //             <email-preview :email="email"  @click.native="markEmailAsRead2(email.id)"/>
+    //             <button @click="remove(email.id)">X</button>
+    //         </router-link >
+    //     </div>
+    // </section>
+
+    // `
 
     // template: `
     // <section>  

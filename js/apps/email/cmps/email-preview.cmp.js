@@ -9,8 +9,11 @@ export default {
             <p>{{email.sendName}}<p/> 
             <p>{{email.subject}}<p/>
             <p>{{getBodyTxtToShow}}</p> 
-            <p>{{timeToShow}}</p>
+            <p>{{email.sentAt}}</p>
+            
         </section>`,
+
+    //<p>{{timeToShow}}</p>
     data() {
         return {
             isStarMark: false
@@ -34,21 +37,21 @@ export default {
         },
 
 
-        timeToShow() {
-            // Create a new JavaScript Date object based on the timestamp
-            // multiplied by 1000 so that the argument is in milliseconds, not seconds.
-            var tsMs = this.email.sentAt * 1000;
+        // timeToShow() {
+        // Create a new JavaScript Date object based on the timestamp
+        // multiplied by 1000 so that the argument is in milliseconds, not seconds.
+        // var tsMs = this.email.sentAt * 1000;
 
-            var date = new Date(tsMs);
+        // var date = new Date(tsMs);
 
 
-            var hours = ("0" + date.getHours()).slice(-2);
+        // var hours = ("0" + date.getHours()).slice(-2);
 
-            var minutes = ("0" + date.getMinutes()).slice(-2);
+        // var minutes = ("0" + date.getMinutes()).slice(-2);
 
-            return hours + ":" + minutes;
+        // return hours + ":" + minutes;
 
-        }
+        // }
 
     }
 }
