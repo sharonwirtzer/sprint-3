@@ -54,16 +54,16 @@ function _createEmails() {
     let emails = utilService.loadFromStorage(EMAILS_KEY)
     if (!emails || !emails.length) {
         emails = []
-        emails.push(_createEmail('Puki', 'Wassap1?', 'Pick up! I need to ask you something very important', false));
-        emails.push(_createEmail('Bob', 'Wassap2?', 'Pick up! I need to ask you something very important', true));
-        emails.push(_createEmail('David', 'Wassap3?', 'Pick up! I need to ask you something very important', true));
-        emails.push(_createEmail('Avi', 'Wassap4?', 'Pick up! I need to ask you something very important', false));
-        emails.push(_createEmail('Arik', 'Wassap5?', 'Pick up! I need to ask you something very important', false));
-        emails.push(_createEmail('me', 'Wassap1?', 'Pick up! I need to ask you something very important', false, 'Dan'));
-        emails.push(_createEmail('me', 'Wassap2?', 'Pick up! I need to ask you something very important', true, 'Micha'));
-        emails.push(_createEmail('me', 'Wassap3?', 'Pick up! I need to ask you something very important', true, 'Golan'));
-        emails.push(_createEmail('me', 'Wassap4?', 'Pick up! I need to ask you something very important', false, 'Shlomi'));
-        emails.push(_createEmail('me', 'Wassap5?', 'Pick up! I need to ask you something very important', false, 'David'));
+        emails.push(_createEmail('Puki', 'Wassap1?', 'Pick up! I need to ask you som', 'Dan', false, false));
+        emails.push(_createEmail('Bob', 'Wassap2?', 'Pick up! I need to ', 'Sara', false, false));
+        emails.push(_createEmail('David', 'Wassap3?', 'Pick up!', 'Dan', false, false));
+        emails.push(_createEmail('Avi', 'Wassap4?', 'Pick up! I need to ', 'Rachel', false, false));
+        emails.push(_createEmail('Arik', 'Wassap5?', 'Pick up! I need ', 'Dan', false, false));
+        emails.push(_createEmail('Arik', 'Wassap1?', 'Pick up! I need ', 'Arik', false, false));
+        emails.push(_createEmail('David', 'Wassap2?', 'Pick up! I need ', 'Micha', false, false));
+        emails.push(_createEmail('Rachel', 'Wassap3?', 'Pick up! I need ', 'Golan', false, false));
+        emails.push(_createEmail('Dana', 'Wassap4?', 'Pick up! I need ', 'Shlomi', false, false));
+        emails.push(_createEmail('Sara', 'Wassap5?', 'Pick up! I need', 'David', false, false));
         utilService.saveToStorage(EMAILS_KEY, emails)
     }
     return emails;
@@ -77,7 +77,9 @@ function getEmptyEmail() {
         body: '',
         isRead: false,
         sentAt: '',
-        sendTo: ''
+        sendTo: '',
+        send: false,
+        isDraft: false
 
     }
 }

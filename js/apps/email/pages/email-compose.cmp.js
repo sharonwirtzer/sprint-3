@@ -40,10 +40,11 @@ export default {
                 .then(email => {
                     console.log('Saved email:', email);
                     const msg = {
-                            txt: 'email saved succesfully',
-                            type: 'success'
-                        }
-                        // eventBus.$emit('show-msg', msg)
+                        txt: 'email saved succesfully',
+                        type: 'success'
+                    }
+                    this.email = send;
+                    // eventBus.$emit('show-msg', msg)
                     this.$router.push('/email')
                 })
                 .catch(err => {
