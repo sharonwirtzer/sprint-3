@@ -18,8 +18,14 @@
 
 * button {
     cursor: pointer;
-    /* border-color: transparent;
-    background-color: transparent; */
+    border-color: transparent;
+    background-color: transparent;
+}
+
+* button:hover  {
+   
+    background-color: rgb(163, 159, 159);
+    border-radius: 5px;
 }
 
 a {
