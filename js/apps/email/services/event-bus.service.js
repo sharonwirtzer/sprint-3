@@ -14,6 +14,3 @@ export const eventBus = new Vue()
 // // Debug Technique:
 // window.myBus = eventBus;
 // export const NEW_NOTE_CREATED = 'new-note-created';
-export const EMAIL_DELETED = 'email-deleted';
-export const DETAILS_PAGE_CLOSED = 'details-page-closed';
-export const EMAIL_SENDED = 'email-sended';

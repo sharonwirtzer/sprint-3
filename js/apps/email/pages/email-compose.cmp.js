@@ -35,12 +35,11 @@ export default {
         },
 
         sent() {
+            emailCopy.sentAt = Date.now();
+            // this.$emit('send', emailId);
 
-            debugger;
             emailService.save(this.emailToAdd)
                 .then(email => {
-                    email.sentAt = Date.now();
-
                     console.log('Saved email:', email);
                     const msg = {
                         txt: 'email saved succesfully',

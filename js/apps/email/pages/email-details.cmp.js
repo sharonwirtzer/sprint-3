@@ -1,7 +1,7 @@
  import emailCompose from '../pages/email-compose.cmp.js';
  import { emailService } from '../services/email.service.js';
  import { utilService } from "../../../services/util.service.js";
- import { eventBus, EMAIL_SENDED, DETAILS_PAGE_CLOSED } from '../services/event-bus.service.js';
+ //  import { eventBus, EMAIL_SENDED, DETAILS_PAGE_CLOSED } from '../services/event-bus.service.js';
  // <router-link to="/email/add" v-if="isReply" v-on:close="closeReply" v-on:send="sendReply" :email="email" :reply="true"></router-link>
 
  // <email-compose v-if="isReply" v-on:close="closeReply" v-on:send="sendReply" :email="email" :reply="true"></email-compose>
@@ -134,7 +134,7 @@
      },
      components: {
          emailService,
-         eventBus,
+         //  eventBus,
          emailCompose
 
      },
