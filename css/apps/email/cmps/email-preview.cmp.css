@@ -25,12 +25,18 @@
     justify-content: space-between;
 }
 
+
+/*unread emails*/
+
 .bold {
-    font-weight: 200;
+    font-weight: 700;
 }
 
+
+/*read emails*/
+
 .unBold {
-    font-weight: 1000;
+    font-weight: 200;
 }
 
 

@@ -6,7 +6,7 @@ export default {
     template: `
     <ul class="keep-list">
     
-        <li v-for="keep in keeps" :key="keep.id" class="keep-preview-container" >
+        <li v-for="keep in keeps" :key="keep.id" class="keep-preview-container"  >
             <keep-preview  :keep="keep"  @click.native="logId(keep.id)"  />
           
            
@@ -34,9 +34,10 @@ export default {
             console.log('Id is', keepId);
         }
     },
+
+
     components: {
         keepPreview
     }
 
 }
-

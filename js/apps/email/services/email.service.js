@@ -11,12 +11,16 @@ export const emailService = {
     remove,
     save,
     getEmptyEmail,
-    getById,
-    getNextemailId,
+    getEmailById,
+    getNextEmailId,
     markRead
 }
 
-function getNextemailId(emailId) {
+function getAllEmails() {
+    return gEmails;
+}
+
+function getNextEmailId(emailId) {
     // TODO: get the real next id
     return ''
 }
@@ -38,6 +42,9 @@ function markRead(emailId) {
 }
 
 function save(email) {
+
+    email.sentAt = Date.now();
+    // debugger
     if (email.id) {
         return storageService.put(EMAILS_KEY, email)
     } else {
@@ -46,7 +53,7 @@ function save(email) {
 }
 
 
-function getById(id) {
+function getEmailById(id) {
     return storageService.get(EMAILS_KEY, id)
 }
 
@@ -54,16 +61,16 @@ function _createEmails() {
     let emails = utilService.loadFromStorage(EMAILS_KEY)
     if (!emails || !emails.length) {
         emails = []
-        emails.push(_createEmail('Puki', 'Wassap1?', 'Pick up! I need to ask you som', 'Dan', false, false));
-        emails.push(_createEmail('Bob', 'Wassap2?', 'Pick up! I need to ', 'Sara', false, false));
-        emails.push(_createEmail('David', 'Wassap3?', 'Pick up!', 'Dan', false, false));
-        emails.push(_createEmail('Avi', 'Wassap4?', 'Pick up! I need to ', 'Rachel', false, false));
-        emails.push(_createEmail('Arik', 'Wassap5?', 'Pick up! I need ', 'Dan', false, false));
-        emails.push(_createEmail('Arik', 'Wassap1?', 'Pick up! I need ', 'Arik', false, false));
-        emails.push(_createEmail('David', 'Wassap2?', 'Pick up! I need ', 'Micha', false, false));
-        emails.push(_createEmail('Rachel', 'Wassap3?', 'Pick up! I need ', 'Golan', false, false));
-        emails.push(_createEmail('Dana', 'Wassap4?', 'Pick up! I need ', 'Shlomi', false, false));
-        emails.push(_createEmail('Sara', 'Wassap5?', 'Pick up! I need', 'David', false, false));
+        emails.push(_createEmail('Puki', 'Wassap1?', 'Lorem ipsum dolor sit amet consectetur adipisicing elit.', 'Dan', false));
+        emails.push(_createEmail('Puki', 'Wassap2?', 'Quaerat tenetur mollitia consectetur adipisci, dolorum.', 'Sara', false));
+        emails.push(_createEmail('Puki', 'Wassap3?', 'blanditiis alias, nemo nihil soluta nostrum.', 'Dan', true));
+        emails.push(_createEmail('Puki', 'Wassap4?', 'veniam beatae iste explicabo in voluptas deserunt totam ea ratione.', 'Rachel', false));
+        emails.push(_createEmail('Puki', 'Wassap5?', 'earum necessitatibus fugit quas! Consequatur at in veritatis non quo!', 'Dan', false));
+        emails.push(_createEmail('Arik', 'Wassap1?', 'perspiciatis asperiores dolorem dolores et tenetur odio autem eos eligendi.', 'Puki', true));
+        emails.push(_createEmail('David', 'Wassap2?', 'Consectetur deserunt eveniet sed ut amet quo sequi sit, minus hic rem commodi.', 'Puki', false));
+        emails.push(_createEmail('Rachel', 'Wassap3?', 'Neque repellat enim id eum nobis, animi, repellendus alias fuga doloribus,', 'Puki', false));
+        emails.push(_createEmail('Dana', 'Wassap4?', 'Soluta, esse quaerat illum pariatur asperiores minus vero totam libero', 'Puki', true));
+        emails.push(_createEmail('Sara', 'Wassap5?', 'asperiores aut sequi aperiam nihil mollitia consequuntur!', 'Puki', false));
         utilService.saveToStorage(EMAILS_KEY, emails)
     }
     return emails;
@@ -72,54 +79,52 @@ function _createEmails() {
 function getEmptyEmail() {
     return {
         id: '',
-        sendName: '',
+        from: '',
         subject: '',
         body: '',
         isRead: false,
+        cc: '',
         sentAt: '',
         sendTo: '',
-        send: false,
-        isDraft: false
+        // isDraft: false
 
     }
 }
 
 
-function _createEmail(sendName, subject, body, isRead, sendTo) {
+function _createEmail(from, subject, body, sendTo, isRead) {
     const email = getEmptyEmail();
     email.id = utilService.makeId();
-    email.sendName = sendName;
+    email.from = from;
     email.subject = subject;
     email.body = body;
     email.isRead = isRead;
     // email.sentAt = Date.now();
-    email.sentAt = setDate();
+    // var date = utilService.getRandomDate(new Date(2012, 0, 1), new Date()); //(start,end)
+    email.sentAt = Date.now();
+    // email.sentAt = setDate(date);
     email.sendTo = sendTo;
 
     return email;
 }
 
-function setDate() {
-    var date = utilService.getRandomDate(new Date(2012, 0, 1), new Date()); //(start,end)
-    // var date = new Date(); for check if it will return correctly (only the time)
+// function setDate(date) {
 
-    var hour = date.getHours() < 10 ? '0' + date.getHours() : date.getHours();
-    var minutes = date.getMinutes() < 10 ? '0' + date.getMinutes() : date.getMinutes();
+//     var date = new Date(); for check if it will return correctly (only the time)
 
-    var year = date.getFullYear();
-    var month = date.getMonth() + 1; // : January = 0; February = 1, etc.
-    var day = date.getDate();
+//     var hour = date.getHours() < 10 ? '0' + date.getHours() : date.getHours();
+//     var minutes = date.getMinutes() < 10 ? '0' + date.getMinutes() : date.getMinutes();
 
-    if ((year === (new Date().getFullYear())) &&
-        (month === ((new Date().getMonth()) + 1)) &&
-        (day === (new Date().getDate()))) {
-        return hour + ' : ' + minutes;
-    }
+//     var year = date.getFullYear();
+//     var month = date.getMonth() + 1; // : January = 0; February = 1, etc.
+//     var day = date.getDate();
 
-    return day + '.' + month + '.' + year + ', ' + hour + ':' + minutes;
+//     if ((year === (new Date().getFullYear())) &&
+//         (month === ((new Date().getMonth()) + 1)) &&
+//         (day === (new Date().getDate()))) {
+//         return hour + ' : ' + minutes;
+//     }
 
+//     return day + '.' + month + '.' + year + ', ' + hour + ':' + minutes;
 
-
-
-
-}
+// }

@@ -3,9 +3,10 @@
 import { emailService } from '../services/email.service.js';
 import emailFilter from '../cmps/email-filter.cmp.js';
 import emailList from '../cmps/email-list.cmp.js';
-import emailCompose from '../pages/email-compose.cmp.js';
+import emailCompose from './email-compose.cmp.js';
 import emailPreview from '../cmps/email-preview.cmp.js';
 import sideNav from '../cmps/side-nav.cmp.js';
+import emailSort from '../cmps/email-sort.cmp.js';
 
 // import emailStatus from '../cmps/email-status.cmp.js';
 
@@ -20,13 +21,13 @@ export default {
     template: `
             <section class="email app-main">
                 <email-filter @filtered="setFilter" @sorted="setSort" />
+                <email-sort :emails="emailsToShow"></email-sort>
                 <email-list :emails="emailsToShow" @remove="removeEmail"  @read="markEmailRead"/> 
                 <side-nav></side-nav>
             </section>`,
     data() {
 
         return {
-
             emails: [],
             filterBy: null,
             sortBy: ''
@@ -96,13 +97,14 @@ export default {
     computed: {
         emailsToShow() {
 
+
             if (!this.filterBy) return this.emails;
             var { byTxt } = this.filterBy;
             byTxt = byTxt.toLowerCase();
             var showenEmails = this.emails.filter(email => {
                 return (email.body.toLowerCase().includes(byTxt)) ||
                     (email.subject.toLowerCase().includes(byTxt)) ||
-                    (email.sendName.toLowerCase().includes(byTxt))
+                    (email.from.toLowerCase().includes(byTxt))
             })
             if (this.filterBy.byStatus === 'Unread') showenEmails = showenEmails.filter(email => !email.isRead);
             if (this.filterBy.byStatus === 'Read') showenEmails = showenEmails.filter(email => email.isRead);
@@ -112,7 +114,7 @@ export default {
             // if ((this.sortBy === 'Titles Ascending') || (this.sortBy === 'Titles Decending')) sortEmails = sortByTxt(showenEmails);
             // else sortEmails = sortByDate(showenEmails);
             // // emailsSort(emailsToShow);
-            // return showenEmails;
+            return showenEmails;
         },
 
     },
@@ -125,6 +127,7 @@ export default {
         sideNav,
         emailCompose,
         emailPreview,
+        emailSort
 
         // emailStatus
     }

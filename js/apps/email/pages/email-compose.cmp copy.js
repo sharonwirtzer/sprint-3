@@ -8,17 +8,18 @@ import { emailService } from '../services/email.service.js'
 export default {
     props: ['email', 'reply'],
     template: `
-    <section v-if="email" class="email-compose-container">
-                <input  placeholder="To:" type="text" v-model="email.to">
-                <input  placeholder="Cc:" type="text" v-model="email.cc">
-                <input  placeholder="Subject:" type="text" v-model="email.subject">
-                <textarea  rows="30" cols="500" v-model="email.body"></textarea>
-               
-                <button v-on:click="close">Close</button>
-                <button v-on:click="sent">Send</button>
-           
-            <!-- <user-msg></user-msg> -->
-        </section>
+    <section v-if="emailToAdd" class="email-compose-container ">
+        <h3>New Message</h3>
+        <form @submit.prevent="save">
+            <button class="btn-close-details" @click="close">X</button>
+            <input type="text" placeholder="To" v-model="emailToAdd.to" >
+            <input type="text" placeholder="Cc" v-model="emailToAdd.cc" >
+            <input type="text" placeholder="Subject" v-model="emailToAdd.subject">
+            <textarea cols="30" rows="10" v-model="emailToAdd.body"></textarea>
+            <button>Send</button>
+        </form>
+      
+    </section>
     `,
 
     data() {
@@ -28,15 +29,18 @@ export default {
     },
 
     methods: {
+        close() {
+            if (this.email.to || this.email.cc || this.email.subject || email.body) this.$emit('draft', emailId);
+
+        },
         add(emailId) {
             //this section pass to details componenets!!!!!
 
             this.$emit('read', emailId); //father is email-app
         },
 
-        sent() {
 
-
+        save() {
             emailService.save(this.emailToAdd)
                 .then(email => {
 
@@ -59,15 +63,7 @@ export default {
                         }
                         // eventBus.$emit('show-msg', msg)
                 })
-        },
-        close() {
-            // if (this.email.to || this.email.cc || this.email.subject || email.body) this.$emit('draft', emailId);
-
-            this.$emit('close');
-
-
-        },
-
+        }
     },
     computed: {
         // title() {
@@ -79,15 +75,16 @@ export default {
         }
     },
     created() {
-
-        if (this.emailId) emailService.getEmailById(this.emailId).then(email => this.emailToAdd = email)
-        else this.emailToAdd = emailService.getEmptyEmail()
-
+        // debugger;
+        if (this.emailId) {
+            emailService.getEmailById(this.emailId).then(email => this.emailToAdd = email)
+        } else {
+            this.emailToAdd = emailService.getEmptyEmail()
+        }
         if (this.reply) {
-            this.email = {...this.email };
-            this.email.body = '';
-            this.email.to = this.email.from;
+            this.email = {...this.emailProp };
             this.email.subject = 'Re:' + this.email.subject;
+            this.email.to = this.email.from;
         }
 
     },

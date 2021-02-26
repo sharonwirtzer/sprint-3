@@ -29,22 +29,23 @@ function save(keep) {
 }
 
 function getEmptykeep() {
-    return { id: '', title: '', note: ''}
+    return { id: '', title: '', note: '', }
 }
 
 function _createkeeps() {
     let keeps = utilService.loadFromStorage(keepS_KEY)
-        keeps = [] 
-        utilService.saveToStorage(keepS_KEY, keeps)
-    
+    keeps = []
+    utilService.saveToStorage(keepS_KEY, keeps)
+
     return keeps;
 }
 
- function _createkeep(title, note ) {
+function _createkeep(title, note, ) {
     const keep = {
         id: utilService.makeId(),
         title,
         note,
+
     }
     return keep;
-} 
+}
