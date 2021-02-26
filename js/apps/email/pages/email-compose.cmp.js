@@ -9,7 +9,7 @@ export default {
     props: ['email', 'reply'],
     template: `
     <section v-if="email" class="email-compose-container">
-                <input  placeholder="To:" type="text" v-model="email.to">
+                <input  placeholder="To:" type="text" v-model="email.sendTo">
                 <input  placeholder="Cc:" type="text" v-model="email.cc">
                 <input  placeholder="Subject:" type="text" v-model="email.subject">
                 <textarea  rows="30" cols="500" v-model="email.body"></textarea>
@@ -24,6 +24,10 @@ export default {
     data() {
         return {
             emailToAdd: null
+                // emailToAdd: {
+                //     from: this.email.from,
+
+            // }
         }
     },
 
@@ -35,8 +39,8 @@ export default {
         },
 
         sent() {
-            debugger
-            this.email.sentAt = Date.now();
+            // debugger
+            // this.email.sentAt = Date.now();
             this.$emit('send', {...this.email });
 
             // emailService.save(this.emailToAdd)
@@ -81,14 +85,23 @@ export default {
     },
     created() {
 
-        if (this.emailId) emailService.getEmailById(this.emailId).then(email => this.emailToAdd = email)
-        else this.emailToAdd = emailService.getEmptyEmail()
+
+        // if (this.emailId) emailService.getEmailById(this.emailId).then(email => this.emailToAdd = email)
+        // else this.emailToAdd = emailService.getEmptyEmail()
 
         if (this.reply) {
-            this.email = {...this.email };
-            this.email.body = '';
-            this.email.to = this.email.from;
-            this.email.subject = 'Re:' + this.email.subject;
+
+            this.emailToAdd = {...this.email };
+            // debugger
+            this.emailToAdd.body = '';
+            this.emailToAdd.sendTo = this.email.from;
+            this.emailToAdd.from = this.email.sendTo;
+            this.emailToAdd.subject = 'Re:' + this.email.subject;
+
+            // this.email = {...this.email };
+            // this.email.body = '';
+            // this.email.to = this.email.from;
+            // this.email.subject = 'Re:' + this.email.subject;
         }
 
     },
