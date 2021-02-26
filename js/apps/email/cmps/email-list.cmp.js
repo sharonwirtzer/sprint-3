@@ -32,7 +32,7 @@ export default {
         // },
         markEmailAsRead(emailId) {
             //this section pass to details componenets!!!!!
-
+            debugger;
             this.$emit('read', emailId); //father is email-app
         }
     },

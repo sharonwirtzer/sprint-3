@@ -35,30 +35,31 @@ export default {
         },
 
         sent() {
-            emailCopy.sentAt = Date.now();
-            // this.$emit('send', emailId);
+            debugger
+            this.email.sentAt = Date.now();
+            this.$emit('send', {...this.email });
 
-            emailService.save(this.emailToAdd)
-                .then(email => {
-                    console.log('Saved email:', email);
-                    const msg = {
-                        txt: 'email saved succesfully',
-                        type: 'success'
-                    }
+            // emailService.save(this.emailToAdd)
+            //     .then(email => {
+            //         console.log('Saved email:', email);
+            //         const msg = {
+            //             txt: 'email saved succesfully',
+            //             type: 'success'
+            //         }
 
-                    // this.email = send;
-                    // eventBus.$emit('show-msg', msg)
+            //         // this.email = send;
+            //         // eventBus.$emit('show-msg', msg)
 
-                    this.$router.push('/email')
-                })
-                .catch(err => {
-                    console.log(err);
-                    const msg = {
-                            txt: 'Error, please try again later',
-                            type: 'error'
-                        }
-                        // eventBus.$emit('show-msg', msg)
-                })
+            //         this.$router.push('/email')
+            //     })
+            //     .catch(err => {
+            //         console.log(err);
+            //         const msg = {
+            //                 txt: 'Error, please try again later',
+            //                 type: 'error'
+            //             }
+            //             // eventBus.$emit('show-msg', msg)
+            //     })
         },
         close() {
             // if (this.email.to || this.email.cc || this.email.subject || email.body) this.$emit('draft', emailId);

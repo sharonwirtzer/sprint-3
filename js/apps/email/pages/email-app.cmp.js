@@ -80,8 +80,9 @@ export default {
             }
         },
 
-        markEmailRead(emailId) { //to turn to emailService for that????? inbar
-
+        markEmailRead(emailId) { //to turn to emailService for that????? 
+            emailService.getEmailById()
+            this.isRead = true;
             // emailService.markRead(emailId)
             //     .then(this.loadEmails);
 
