@@ -52,6 +52,7 @@
      },
      methods: {
          sendReply(email) {
+
              //      debugger;
              //      email.isRead = true;
 
@@ -96,10 +97,11 @@
                          type: 'success'
                      }
 
+
                      // this.email = send;
                      // eventBus.$emit('show-msg', msg)
 
-                     this.$router.push('/email')
+                     this.$router.push('/email');
                  })
                  .catch(err => {
                      console.log(err);
