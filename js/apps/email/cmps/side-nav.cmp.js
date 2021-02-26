@@ -18,6 +18,7 @@ import { emailService } from '../services/email.service.js';
 
 
 export default {
+
     template: `
     <section class="side-nav">
             <router-link to="/email/add" tag="button">+Compose</router-link>
