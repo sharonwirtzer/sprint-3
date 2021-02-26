@@ -2,21 +2,36 @@ import emailPreview from './email-preview.cmp.js';
 import emailStatus from '../cmps/email-status.cmp.js';
 //@click.native="logId(email.id)" was on <email-preview> component
 
-export default {
-    props: ['emails'],
-    template: `
-    <section>  
-
+/* <section>  
         <email-status :emails="emails"></email-status>
         <div class="email-list-container" v-for="email in emails" :key="email.id">
             <router-link class="email-preview-container" :to="'/email/'+email.id" >
                 <email-preview :email="email"  @click.native="markEmailAsRead(email.id)"/>
             </router-link >
            
-                <button @click="remove(email.id)">X</button>
+            <button @click="remove(email.id)">X</button>
+           
+        </div>
+    </section>` */
+
+
+export default {
+    // props: ['emails', 'folder'],
+    props: ['emails', 'folder'],
+    template: `
+    <section>  
+        <email-status :emails="emails"></email-status>
+        <div class="email-list-container" v-for="email in emailsToShow" :key="email.id">
+            <router-link class="email-preview-container" :to="'/email/'+email.id" >
+                <email-preview :email="email"  @click.native="markEmailAsRead(email.id)"/>
+            </router-link >
+           
+            <button @click="remove(email.id)">X</button>
            
         </div>
     </section>`,
+
+
 
 
     methods: {
@@ -32,14 +47,43 @@ export default {
         // },
         markEmailAsRead(emailId) {
             //this section pass to details componenets!!!!!
-            debugger;
+            // debugger;
             this.$emit('read', emailId); //father is email-app
         }
     },
+    computed: {
+        emailToShow() {
+
+
+            if (folder === 'sent') {
+                this.emails.map()
+
+
+
+
+            }
+            // if(this.emails.sentAt)
+
+
+
+
+
+
+
+            return emailsToShow;
+
+
+
+
+        }
+    },
+
     created() {
 
         console.log('email-list: ', this.emails);
+        console.log('folder:', this.folder)
     },
+
 
     components: {
         emailPreview,

@@ -15,8 +15,8 @@
  //  Click me  
  // </router-link> 
  //  <p>{{email.isRead}}</p>
- debugger;
-
+ //  debugger;
+ // 
 
  export default {
      //  props: ['email'],
@@ -100,7 +100,7 @@
              this.$router.push('/email');
          },
          replyEmail() {
-             debugger
+             //  debugger
 
              this.isReply = true;
          },

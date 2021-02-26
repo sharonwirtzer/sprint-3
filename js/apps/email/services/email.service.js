@@ -42,7 +42,7 @@ function markRead(emailId) {
 }
 
 function save(email) {
-    debugger;
+    // debugger;
     // email.sentAt = Date.now();
     // debugger
     if (email.id) {
@@ -61,16 +61,16 @@ function _createEmails() {
     let emails = utilService.loadFromStorage(EMAILS_KEY)
     if (!emails || !emails.length) {
         emails = []
-        emails.push(_createEmail('Puki', 'Wassap1?', 'Lorem ipsum dolor sit amet consectetur adipisicing elit.', 'Dan', false));
-        emails.push(_createEmail('Puki', 'Wassap2?', 'Quaerat tenetur mollitia consectetur adipisci, dolorum.', 'Sara', false));
-        emails.push(_createEmail('Puki', 'Wassap3?', 'blanditiis alias, nemo nihil soluta nostrum.', 'Dan', true));
-        emails.push(_createEmail('Puki', 'Wassap4?', 'veniam beatae iste explicabo in voluptas deserunt totam ea ratione.', 'Rachel', false));
-        emails.push(_createEmail('Puki', 'Wassap5?', 'earum necessitatibus fugit quas! Consequatur at in veritatis non quo!', 'Dan', false));
-        emails.push(_createEmail('Arik', 'Wassap1?', 'perspiciatis asperiores dolorem dolores et tenetur odio autem eos eligendi.', 'Puki', true));
-        emails.push(_createEmail('David', 'Wassap2?', 'Consectetur deserunt eveniet sed ut amet quo sequi sit, minus hic rem commodi.', 'Puki', false));
-        emails.push(_createEmail('Rachel', 'Wassap3?', 'Neque repellat enim id eum nobis, animi, repellendus alias fuga doloribus,', 'Puki', false));
-        emails.push(_createEmail('Dana', 'Wassap4?', 'Soluta, esse quaerat illum pariatur asperiores minus vero totam libero', 'Puki', true));
-        emails.push(_createEmail('Sara', 'Wassap5?', 'asperiores aut sequi aperiam nihil mollitia consequuntur!', 'Puki', false));
+        emails.push(_createEmail('Dan', 'Wassap1?', 'Lorem ipsum dolor sit amet consectetur adipisicing elit.', 'Puki', false));
+        emails.push(_createEmail('Sara', 'Wassap2?', 'Quaerat tenetur mollitia consectetur adipisci, dolorum.', 'Puki', false));
+        emails.push(_createEmail('Dan', 'Wassap3?', 'blanditiis alias, nemo nihil soluta nostrum.', 'Puki', true));
+        emails.push(_createEmail('Rachel', 'Wassap4?', 'veniam beatae iste explicabo in voluptas deserunt totam ea ratione.', 'Puki', false));
+        emails.push(_createEmail('Dan', 'Wassap5?', 'earum necessitatibus fugit quas! Consequatur at in veritatis non quo!', 'Puki', false));
+        emails.push(_createEmail('Puki', 'Wassap1?', 'perspiciatis asperiores dolorem dolores et tenetur odio autem eos eligendi.', 'David', true));
+        emails.push(_createEmail('Puki', 'Wassap2?', 'Consectetur deserunt eveniet sed ut amet quo sequi sit, minus hic rem commodi.', 'Eli', false));
+        emails.push(_createEmail('Puki', 'Wassap3?', 'Neque repellat enim id eum nobis, animi, repellendus alias fuga doloribus,', 'Sara', false));
+        emails.push(_createEmail('Puki', 'Wassap4?', 'Soluta, esse quaerat illum pariatur asperiores minus vero totam libero', 'Puki', true));
+        emails.push(_createEmail('Puki', 'Wassap5?', 'asperiores aut sequi aperiam nihil mollitia consequuntur!', 'Puki', false));
         utilService.saveToStorage(EMAILS_KEY, emails)
     }
     return emails;
