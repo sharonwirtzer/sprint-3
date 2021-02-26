@@ -16,6 +16,17 @@
     margin: 0px;
 }
 
+.home{
+
+    background-image: url('');
+    background-size: cover;
+    padding: 80px;
+    text-align: center;
+    color: white;
+    font-size: 40px;
+}
+
+
 * button {
     cursor: pointer;
     border-color: transparent;
