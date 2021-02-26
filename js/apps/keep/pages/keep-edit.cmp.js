@@ -11,11 +11,16 @@ export default {
 
             <button title="New note with image"><img src="img/11.png" height="30" width="30" /></button>
 
-             <input type= "file" @change= "onfileSelected" >
+           
+
 
             <button title="Save"><img src="img/8.png" height="30" width="30" /></button>
 
+              <input type= "file" @change= "onfileSelected" >
 
+
+
+              
         </form>
       </section>   
         
