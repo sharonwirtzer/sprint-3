@@ -18,9 +18,8 @@
 
 .home{
     padding-top: 80px;
-  background-color: rgb(92, 90, 90) !important;
-    /* background-image: url('/img/88.jpg'); */
-   /*  background-size: cover; */
+    background-image: url('/img/njnj.jpg');
+    background-size: cover;
     /* padding: 80px; */
     text-align: center;
     color: rgb(224, 200, 62);
@@ -32,9 +31,8 @@
 }
 
 .openn{
-  margin-top: 150px;
+  margin-top: 200px;
 }
-
 
 * button {
     cursor: pointer;
