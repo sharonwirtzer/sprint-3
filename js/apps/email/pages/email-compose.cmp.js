@@ -36,9 +36,10 @@ export default {
 
         sent() {
 
-
+            debugger;
             emailService.save(this.emailToAdd)
                 .then(email => {
+                    email.sentAt = Date.now();
 
                     console.log('Saved email:', email);
                     const msg = {

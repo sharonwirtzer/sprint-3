@@ -42,8 +42,8 @@ function markRead(emailId) {
 }
 
 function save(email) {
-
-    email.sentAt = Date.now();
+    debugger;
+    // email.sentAt = Date.now();
     // debugger
     if (email.id) {
         return storageService.put(EMAILS_KEY, email)

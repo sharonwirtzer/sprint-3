@@ -15,10 +15,11 @@
  //  Click me  
  // </router-link> 
  //  <p>{{email.isRead}}</p>
+ debugger;
 
 
  export default {
-     props: ['email'],
+     //  props: ['email'],
      template: `<section v-if="email" class="email-details">
                      <div v-show="!isReply" class="flex column">
                         <h1>Subject: {{email.subject}}</h1>
@@ -113,6 +114,7 @@
                  })
          },
          loademail() {
+
              const id = this.$route.params.emailId
              emailService.getEmailById(id)
                  .then(email => {
@@ -120,7 +122,7 @@
                      this.email = email
                          // this.nextEmailId = emailService.getNextEmailId(email.id)
                      this.email.isRead = true;
-                     this.save(); ///ask inbar 
+                     //  this.save(); ///ask inbar 
                      console.log('this.email.isRead?????????details roe 86', this.email.isRead)
                  })
 
