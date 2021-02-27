@@ -7,7 +7,7 @@
 /* DETAILS */
 
 .email-details {
-    background-color: rgb(167, 187, 168);
+    background-color: rgb(243, 243, 243);
     padding: 10px;
     /* display: flex;
     flex-direction: column; */
@@ -18,7 +18,7 @@
 }
 
 .email-details h1 {
-    margin-top: 15px;
+    margin-top: 100px;
 }
 
 .email-details h5 {
@@ -26,7 +26,7 @@
 }
 
 .email-details p {
-    margin-top: 15px;
+    margin-top: 90px;
 }
 
 

@@ -23,13 +23,9 @@ export default {
             <router-link class="email-preview-container" :to="'/email/'+email.id" >
                 <email-preview :email="email"  @click.native="markEmailAsRead(email.id)"/>
             </router-link >
-           
-            <button @click="remove(email.id)">X</button>
-           
+            <button @click="remove(email.id)"><img src="img/50.png" height="15" width="15" /></button>
         </div>
     </section>`,
-
-
 
 
     methods: {

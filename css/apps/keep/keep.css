@@ -39,8 +39,8 @@
   width: 60%;
   border-radius: 5px;
   box-shadow: 0 2px 5px #ccc;
- align-items: center
-
+ align-items: center;
+ padding: 30px ;
 }
 
 ul {

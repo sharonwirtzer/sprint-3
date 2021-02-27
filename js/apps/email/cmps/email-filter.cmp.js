@@ -16,18 +16,16 @@ export default {
 
 
     template: `
-    <section class="email-filter">
-        <div>
-            <label> Search a mail: </label>    
-            <input ref="emailInput" type="text" @input="setFilter" placeholder="Search mail" v-model="filterBy.byTxt">
-        </div >
-        <div >
+    <section class="email-filter"  >
+          
+            <input ref="emailInput"   class="email-search"  type="text" @input="setFilter" placeholder="Search mail" v-model="filterBy.byTxt">
+       
             <select @change="setFilter" v-model="filterBy.byStatus">
                 <option value="All">All</option>
                 <option value="Read">Read</option>
                 <option value="Unread">Unread</option>
             </select>               
-        </div>
+      
       
         
        
