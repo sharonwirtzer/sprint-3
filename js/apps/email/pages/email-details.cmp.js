@@ -14,7 +14,7 @@ export default {
                 <div class="flex spcae-between">     
                     <img src="img/user.png" height="50" width="50"/>
                     <h5>From:{{email.from}}</h5>
-                    <h5>To:{{email.sendTo}}</h5>
+                   
                     <h5>Cc:{{email.cc}}</h5>
                     <h5>{{getTimeToShow}}</h5>                     
                 </div> 
