@@ -1,7 +1,8 @@
-/* * {
+* {
     box-sizing: border-box;
     margin: 0px;
-} */
+    font-family: sans-serif;
+}
 
 .email-filter {
     margin-left: 120px;
@@ -10,13 +11,28 @@
     font-size: 17px;
     width: 60%;
     border-radius: 5px;
-    margin-bottom: 80px;
-    
+
+
 }
 
-.email-search{
+.email-search {
 
     background-color: transparent;
     border-color: transparent;
     margin-right: 600px;
+}
+
+.email-sort {
+    margin-top: 10px;
+    margin-left: 120px;
+    background-color: transparent;
+    margin-bottom: 50px;
+}
+
+
+.emails-sort {
+    margin-left: 120px;
+    background-color: transparent;
+    padding: 10px;
+    font-size: 33px;
 }

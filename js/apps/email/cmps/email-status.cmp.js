@@ -1,7 +1,7 @@
 export default {
     props: ['emails'],
     template: `
-        <section v-if="emails">
+        <section  class="emails-sort" v-if="emails">
             <span>You got {{getUnReadCount}} unread emails</span>
         </section>`,
 
