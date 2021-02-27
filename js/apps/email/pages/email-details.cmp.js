@@ -12,11 +12,19 @@ export default {
                     <button title="reply" v-on:click="replyEmail"> <img src="img/reply.png" height="30" width="30" /></button> 
                     <router-link to="/email" tag="button" title="back"> <img src="img/back.png" height="30" width="30" /></router-link>  
                 </div> 
+<<<<<<< HEAD
                     
               
                 <div class="flex spcae-between"> 
                     <h5>From: {{email.from}}</h5>
                     <h5>Cc: {{email.cc}}</h5>
+=======
+                <div class="flex spcae-between">     
+                    <img src="img/user.png" height="50" width="50"/>
+                    <h5>From:{{email.from}}</h5>
+                   
+                    <h5>Cc:{{email.cc}}</h5>
+>>>>>>> d1c191bec9f0ff97e92dc7ebba7ac21fc5ae83fa
                     <h5>{{getTimeToShow}}</h5>                     
                
                 <p>{{email.body}}</p> 
