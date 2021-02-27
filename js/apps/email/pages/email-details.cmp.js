@@ -13,7 +13,7 @@ export default {
                     <router-link to="/email" tag="button" title="back"> <img src="img/back.png" height="30" width="30" /></router-link>  
                 </div> 
                 <div class="flex spcae-between">     
-                    <img src="img/user.png" height="50" width="50"/>
+                    
                     <h5>From:{{email.from}}</h5>
                    
                     <h5>Cc:{{email.cc}}</h5>
