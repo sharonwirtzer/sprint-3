@@ -6,8 +6,8 @@ export default {
         <p> {{keep.title}}</p>
         <img :src="keep.img" >
         <p> {{keep.note}}</p>
+      
        
-        
 
     </section>
     `,
