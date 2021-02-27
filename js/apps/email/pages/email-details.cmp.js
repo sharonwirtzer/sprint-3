@@ -31,6 +31,7 @@ export default {
                             <div class="flex spcae-between">     
                                <img src="img/user.png" height="50" width="50"  />
                                <h5>{{email.from}}</h5>
+                            
                              <h5 >{{getTimeToShow}}  </h5>                     
                         </div> 
                         <p>{{email.body}}</p> 
