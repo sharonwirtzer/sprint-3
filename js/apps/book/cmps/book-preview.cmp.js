@@ -1,18 +1,22 @@
-import { bookDetailsService } from '../services/bookDetails-service.js'
-
 export default {
     props: ['book'],
     template: `
-                <section >
-                    <h1>Title: {{book.title}}</h1>
-                    <p>Price: {{book.listPrice.amount}} {{getCurrencyIcon}}</p>
-                    <img :src="book.thumbnail"/>
-                 </section>
+    <section class="book-preview">
+        <div>
+            <p>Title: {{book.title}}</p>
+            <p>Price: {{getCurrency}}</p>
+        </div>
+        <div class="small-img"> 
+            <img class="small-img" v-bind:src="book.thumbnail"/>
+        </div>
+    </section>
     `,
     computed: {
-        getCurrencyIcon() {
-            return bookDetailsService.getCurrencySymbol(this.book)
+        getCurrency() {
+            return (this.book.listPrice.amount.toLocaleString('de-DE', {
+                style: 'currency',
+                currency: this.book.listPrice.currencyCode
+            }))
         }
-
-    }
+    },
 }
