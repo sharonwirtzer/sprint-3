@@ -16,4 +16,6 @@ export default {
         select(review) {
             this.$emit('selected', review)
         },
+
     },
+}
