@@ -1,7 +1,7 @@
 export default {
     template: `
     <section class="home app-main">
-        <h1 >Apsus</h1>
+        <h1 >Appsus</h1>
 
 <section class="openn"   >
 
