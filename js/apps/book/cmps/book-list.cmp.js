@@ -9,9 +9,7 @@ export default {
         <li v-for="book in books" :key="book.id" class="book-preview-container" >
             <book-preview :book="book" @click.native="logId(book.id)" />
             <div class="btns-container">
-                <button @click="remove(book.id)">X</button>
-                <router-link :to="'/book/'+book.id" >Details</router-link>
-                <router-link :to="'/book/edit/'+book.id">Edit</router-link>
+                <button @click="remove(book.id)"><img src="img/50.png" height="20" width="20" /></button>
             </div>
         </li>
     </ul>

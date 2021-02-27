@@ -1,62 +1,60 @@
-import { bookService } from '../services/book-service.js';
-import bookList from '../cmps/book-list.cmp.js';
-import bookDetails from '../pages/book-details.cmp.js';
-import bookFilter from '../cmps/book-filter.cmp.js';
-
+import {
+    bookService
+} from '../services/book-service.js'
+import bookFilter from '../cmps/book-filter.cmp.js'
+import bookList from '../cmps/book-list.cmp.js'
+//import bookDetails from './book-details.cmp.js'
+//import bookEdit from './book-edit.cmp.js'
 
 export default {
-    template: `<section class="book app-main">
-                <book-filter  v-if="!selectedBook" @filtered="setFilter" />
-                <book-list    v-if="!selectedBook" :books="booksToShow" @selected="selectBook" />
-                <book-details v-else :book="selectedBook" @close="selectedBook=null" /> 
-              
-             </section>
-                    `,
-
+    template: `
+        <section class="book-app">
+            <book-filter @filtered="setFilter" />
+            <book-list :books="booksToShow" @remove="removeBook"/>
+            <!--<book-details v-if="selectedBook" :book="selectedBook" @close="selectedBook = null" />
+            <book-edit />-->
+        </section>
+    `,
     data() {
         return {
-            books: null,
-            selectedBook: null,
-            filterBy: null,
-        };
+            books: [], //bookService.query(),
+            //selectedBook: null,
+            filterBy: null
+        }
     },
     methods: {
-        selectBook(book) {
+        loadBooks() {
+            bookService.query()
+                .then(books => this.books = books)
+        },
+        removeBook(bookId) {
+            bookService.remove(bookId)
+                .then(this.loadBooks)
+        },
+        /*selectBook(book) {
             this.selectedBook = book;
-        },
+        },*/
         setFilter(filterBy) {
-            this.filterBy = filterBy;
-        },
-
-        addEmptyArr() {
-
-            for (let i = 0; i < this.books.length; i++) {
-
-                const element = array[i];
-                var emptyArr = [];
-                element['emptyArr'] = emptyArr;
-            }
-            console.log('books:::::', this.books);
+            this.filterBy = filterBy
         }
     },
     computed: {
         booksToShow() {
-            if (!this.filterBy) return this.books;
-            var { byName } = this.filterBy
-            byName = byName.toLowerCase();
-            const booksToShow = this.books.filter(({ title, listPrice }) => {
-                return (title.toLowerCase().includes(byName)) && (listPrice.amount > this.filterBy.fromPrice) && (listPrice.amount < this.filterBy.toPrice)
+            if (!this.filterBy) return this.books
+            const searchStr = (this.filterBy.byTitle) ? this.filterBy.byTitle.toLowerCase() : "";
+            const to = (this.filterBy.toPrice) ? this.filterBy.toPrice : +Infinity;
+            const from = (this.filterBy.fromPrice) ? this.filterBy.fromPrice : 0;
+            const booksToShow = this.books.filter(book => {
+                return (book.title.toLowerCase().includes(searchStr) && from < book.listPrice.amount && book.listPrice.amount < to)
             })
             return booksToShow;
-        },
+        }
     },
     created() {
-        bookService.query()
-            .then(books => this.books = books)
+        this.loadBooks();
     },
     components: {
+        bookFilter,
         bookList,
-        bookDetails,
-        bookFilter
-    },
-};
+    }
+}

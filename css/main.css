@@ -3,6 +3,8 @@
 @import "../css/apps/email/cmps/side-nav.cmp.css";
 @import "../css/apps/email/pages/email-details.cmp.css";
 @import "../css/apps/keep/keep.css";
+@import "../css/apps/book/style.css";
+
 
 * {
     box-sizing: border-box;

@@ -8,28 +8,16 @@ body {
 }
 
 .app-main {
-    background-color: #0B0C10;
+    background-color: #8b8c91;
     min-height: 90vh;
 }
 
-
-/*HEADER*/
-
-.app-header {
-    background-color: #1F2833;
-    padding: 10px;
-    height: 5vh;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    ;
-}
 
 
 /* APP */
 
 .book-app {
-    background-color: #0B0C10;
+    background-color: #dbdbdf;
     min-height: 90vh;
 }
 
@@ -41,8 +29,12 @@ body {
     margin: 10px;
     text-align: center;
     background-color: #C5C6C7;
+    background: #fff;
+    border-radius: 2px;
+    box-shadow: 0 2px 5px rgb(136, 134, 134);
+    padding: 10px;
+  width: 100%;
 }
-
 
 /*LIST*/
 
