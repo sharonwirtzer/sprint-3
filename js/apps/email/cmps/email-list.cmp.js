@@ -69,11 +69,11 @@ export default {
     },
 
     created() {
-        console.log('this.$.route.params.id', this.$route.params.id);
-        /*  this.emailtoshow() */
+      /*   console.log('this.$.route.params.id', this.$route.params.id);
+         this.emailtoshow() 
         console.log('emailsToShow', emailsToShow);
         console.log('email-list: ', this.emails);
-        console.log('folder:', this.folder)
+        console.log('folder:', this.folder) */
     },
 
 
