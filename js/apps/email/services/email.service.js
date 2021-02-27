@@ -44,8 +44,9 @@ function markRead(emailId) {
 function save(email) {
     // debugger;
     // email.sentAt = Date.now();
-    // debugger
-    if (email.id) {
+    debugger
+    // if (email.id) {
+    if (!email.isReply) {
         return storageService.put(EMAILS_KEY, email)
     } else {
         return storageService.post(EMAILS_KEY, email)
@@ -61,16 +62,18 @@ function _createEmails() {
     let emails = utilService.loadFromStorage(EMAILS_KEY)
     if (!emails || !emails.length) {
         emails = []
-        emails.push(_createEmail('Puki', 'Tired of wearing the same socks every day?', 'Check out our new socks collection and trash the other ones! 50% off the previous collection.', 'Puki', true));
-        emails.push(_createEmail('Dan', 'Did you see this video?', 'Hey, I came accross this video and I thought it might interest you. Let me know what you  think!', 'Puki', false));
-        emails.push(_createEmail('Sara', 'Landed in Vietnam - first pictures', 'Hi everyone, I just landed in Vietnam a day ago and it is incredible. The flight was long but worth it. Check out the first pictures I took. Wish you were there, lots of love!', 'Puki', false));
-        emails.push(_createEmail('Dan', 'Doctor appointment', 'Hey, just a reminder that you have an appointment at the doctor´s office Tuesday at 10am.', 'Nir', true));
-        emails.push(_createEmail('Rachel', 'Amir´s secret birthday party', 'Hi all! As you may know, Amir will turn 30 next Friday. I have arranged for us to have a surrprise  party at his favourite bar: Teder.  We will meet at 7pm, just before he comes. Come happy and bearing gifts!', 'Puki', false));
-        emails.push(_createEmail('Dan', 'Bank information', 'Good morning, please find enclosed my bank information. Bank: Leumi  Account number: 093848492283', 'Puki', false));
-        emails.push(_createEmail('Puki', 'Cool video montage', 'I made a video montage of our last trip to Eilat, check it out!', 'David', true));
-        emails.push(_createEmail('Puki', 'Are you ignoring me?!', 'Hey I tried calling you 10 times, whats going on?!', 'Eli', false));
-        emails.push(_createEmail('Puki', 'Work contract', 'Here you go, we are all set! Here is your contract so you can read it when you have time. Welcome to the company!', 'Sara', false));
-        emails.push(_createEmail('Puki', 'Discount Bank  - Save the trees', 'Did you know that you could get your monthly recap via  email? Enable this option in just a few clicks, and save the trees!', 'Puki', false));
+            // emails.push(_createEmail('Puki', 'Tired of wearing the same socks every day?', 'Check out our new socks collection and trash the other ones! 50% off the previous collection.', 'Puki', true));
+            // emails.push(_createEmail('Dan', 'Did you see this video?', 'Hey, I came accross this video and I thought it might interest you. Let me know what you  think!', 'Puki', false));
+            // emails.push(_createEmail('Sara', 'Landed in Vietnam - first pictures', 'Hi everyone, I just landed in Vietnam a day ago and it is incredible. The flight was long but worth it. Check out the first pictures I took. Wish you were there, lots of love!', 'Puki', false));
+            // emails.push(_createEmail('Dan', 'Doctor appointment', 'Hey, just a reminder that you have an appointment at the doctor´s office Tuesday at 10am.', 'Nir', true));
+            // emails.push(_createEmail('Rachel', 'Amir´s secret birthday party', 'Hi all! As you may know, Amir will turn 30 next Friday. I have arranged for us to have a surrprise  party at his favourite bar: Teder.  We will meet at 7pm, just before he comes. Come happy and bearing gifts!', 'Puki', false));
+            // emails.push(_createEmail('Dan', 'Bank information', 'Good morning, please find enclosed my bank information. Bank: Leumi  Account number: 093848492283', 'Puki', false));
+            // emails.push(_createEmail('Puki', 'Cool video montage', 'I made a video montage of our last trip to Eilat, check it out!', 'David', true));
+            // emails.push(_createEmail('Puki', 'Are you ignoring me?!', 'Hey I tried calling you 10 times, whats going on?!', 'Eli', false));
+            // emails.push(_createEmail('Puki', 'Work contract', 'Here you go, we are all set! Here is your contract so you can read it when you have time. Welcome to the company!', 'Sara', false));
+            // emails.push(_createEmail('Puki', 'Discount Bank  - Save the trees', 'Did you know that you could get your monthly recap via  email? Enable this option in just a few clicks, and save the trees!', 'Puki', false));
+        emails.push(_createEmail('Dan', 'Tired of wearing the same socks every day?', 'Check out our new socks collection and trash the other ones! 50% off the previous collection.', 'Puki', false));
+
         utilService.saveToStorage(EMAILS_KEY, emails)
     }
     return emails;
@@ -85,8 +88,10 @@ function getEmptyEmail() {
         isRead: false,
         cc: '',
         sentAt: '',
+        reciveAt: '',
         sendTo: '',
-        // isDraft: false
+        isReply: false
+            // isDraft: false
 
     }
 }
@@ -101,8 +106,11 @@ function _createEmail(from, subject, body, sendTo, isRead) {
     email.isRead = isRead;
     // email.sentAt = Date.now();
     // var date = utilService.getRandomDate(new Date(2012, 0, 1), new Date()); //(start,end)
-    email.sentAt = Date.now();
-    // email.sentAt = setDate(date);
+    email.reciveAt = Date.now();
+    // email.sentAt = Date.now();
+    email.sentAt = '';
+    email.isReply = false;
+
     email.sendTo = sendTo;
 
     return email;

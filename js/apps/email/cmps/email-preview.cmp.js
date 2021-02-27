@@ -28,7 +28,11 @@ export default {
     },
     computed: {
         getTimeToShow() {
-            return utilService.foramatDate(this.email.sentAt);
+            // return utilService.foramatDate(this.email.sentAt);
+            let time;
+            if (this.email.reciveAt) time = this.email.reciveAt;
+            if (this.email.sentAt) time = this.email.sentAt;
+            return utilService.foramatDate(time);
 
         },
         setClassName() {

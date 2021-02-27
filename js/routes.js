@@ -5,7 +5,8 @@ import emailList from './apps/email/cmps/email-list.cmp.js';
 import emailAdd from './apps/email/pages/email-compose.cmp.js';
 import keepApp from './apps/keep/pages/keep-app.cmp.js';
 import about from './pages/about.cmp.js';
-import book from './apps/book/pages/book-app.cmp.js';
+// import book from './apps/book/pages/book-app.cmp.js';
+import bookApp from './apps/book/pages/book-app.cmp.js';
 
 
 const routes = [{
@@ -45,7 +46,8 @@ const routes = [{
 
     {
         path: '/book',
-        component: book
+        // component: book
+        component: bookApp
     },
 
 ]
