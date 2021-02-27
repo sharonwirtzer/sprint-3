@@ -2,11 +2,6 @@
     box-sizing: border-box;
 }
 
-body {
-    color: white;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-}
-
 .app-main {
     background-color: #8b8c91;
     min-height: 90vh;
@@ -62,10 +57,11 @@ body {
     text-align: center;
 }
 
-img {
-    width: 50%;
+ .small-img {
+    width: 190px;
+   margin-left: 22px;
 }
-
+ 
 
 /*DETAILS*/
 
