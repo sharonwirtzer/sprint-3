@@ -48,19 +48,19 @@ export default {
     computed: {
         emailtoshow() {
 
-        /*     debugger
-            if (this.folder === 'sent') {
-                var emailsToShow  = this.emails.map(email=>this.email.sentAt)
+            /*     debugger
+                if (this.folder === 'sent') {
+                    var emailsToShow  = this.emails.map(email=>this.email.sentAt)
 
 
 
 
-            }
-         
+                }
+             
 
-            console.log('emailsToShow' ,emailsToShow);
+                console.log('emailsToShow' ,emailsToShow);
 
-            return emailsToShow; */
+                return emailsToShow; */
 
 
 
@@ -69,9 +69,9 @@ export default {
     },
 
     created() {
-        console.log('this.$.route.params.id',this.$route.params.id);
-       /*  this.emailtoshow() */
-        console.log('emailsToShow' ,emailsToShow);
+        console.log('this.$.route.params.id', this.$route.params.id);
+        /*  this.emailtoshow() */
+        console.log('emailsToShow', emailsToShow);
         console.log('email-list: ', this.emails);
         console.log('folder:', this.folder)
     },
