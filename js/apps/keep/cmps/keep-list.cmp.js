@@ -8,14 +8,8 @@ export default {
     
         <li v-for="keep in keeps" :key="keep.id" class="keep-preview-container" v-bind:style="{ backgroundColor: color}"> 
             <keep-preview  :keep="keep"  @click.native="logId(keep.id)"  />   
-            <button  title="Delete" @click="remove(keep.id)"><img src="img/50.png" height="20" width="20" /></button>  
-            <div class="color">
-            <input type="color" v-model="color"/>
-     </div>
-
-    </div>
-
-
+         <button  title="Delete" @click="remove(keep.id)"><img src="img/50.png" height="20" width="20" /></button> 
+            <input type="color" v-model="color"/>   
         </li>
     </ul>
     `,
