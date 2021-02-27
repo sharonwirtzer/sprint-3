@@ -4,7 +4,7 @@
     flex-direction: column;
     width: 80%;
     margin-right: 15px;
-    background-color: rgb(173, 216, 175);
+    /* background-color: rgb(235, 238, 235); */
     position: fixed;
     z-index: 2;
     top: 175px;
@@ -12,6 +12,18 @@
 }
 
 .side-nav button {
-    width: 500px;
+    width: 200px;
     margin-top: 15px;
+    margin-left: 200px;
+    text-align: center;
+    font-size: 18px;
+    
+}
+
+.side-nav1{
+    
+    padding: 15px;
+    border-radius: 50px;
+    box-shadow: 0 2px 5px #ccc;
+ align-items: center
 }

@@ -7,11 +7,11 @@ export default {
         <section class="email-preview" :class="setClassReadUnRead">
             <input type="checkbox" />
             <span v-on:click="toggleStarMark" :class="setClassName">☆</span>
-            <p>From:{{email.from}}<p/> 
-            <p>{{email.subject}}<p/>
+            <p>From:{{email.from}}</p> 
+            <p>{{email.subject}}</p>
             <p>{{getBodyTxtToShow}}</p> 
             <p>{{getTimeToShow}}</p>
-            <p>To:{{email.sendTo}}<p/> 
+            <p>To:{{email.sendTo}}</p> 
             <p>is read?:{{email.isRead}}</p>
         </section>`,
 
