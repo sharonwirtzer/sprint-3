@@ -9,9 +9,6 @@
 .email-details {
     background-color: rgb(243, 243, 243);
     padding: 10px;
-    /* display: flex;
-    flex-direction: column; */
-    /* justify-content: space-around; */
     font-size: 25px;
     min-height: 90vh;
     text-align: center;
@@ -29,18 +26,13 @@
     margin-top: 90px;
 }
 
-
-/* .email-details pre {
-    background-color: brown;
-    padding: 3px;
-    color: whitesmoke;
-    font-size: 0.8em;
-} */
+.email-details .user {
+    margin-top: 15px;
+}
 
 @media screen and (max-width:700px) {
     .email-details {
         display: flex;
         flex-direction: column;
     }
-
 }
