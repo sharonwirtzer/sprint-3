@@ -56,7 +56,7 @@ function _createEmails() {
     let emails = utilService.loadFromStorage(EMAILS_KEY)
     if (!emails || !emails.length) {
         emails = []
-        emails.push(_createEmail('Dan', 'Tired of wearing the same socks every day?', 'Check out our new socks collection and trash the other ones! 50% off the previous collection.', 'Nir', false, false));
+        emails.push(_createEmail('Dan','Tired of wearing the same socks every day?', 'Check out our new socks collection and trash the other ones! 50% off the previous collection.', 'Nir', false, false));
         emails.push(_createEmail('Nir', 'Did you see this video?', 'Hey, I came accross this video and I thought it might interest you. Let me know what you  think!', 'Rachel', true, true));
         emails.push(_createEmail('Sara', 'Landed in Vietnam - first pictures', 'Hi everyone, I just landed in Vietnam a day ago and it is incredible. The flight was long but worth it. Check out the first pictures I took. Wish you were there, lots of love!', 'Nir', true, false));
         emails.push(_createEmail('Dr.Sharon', 'Doctor appointment', 'Hey, just a reminder that you have an appointment at the doctor´s office Tuesday at 10am.', 'Nir', false, false));
