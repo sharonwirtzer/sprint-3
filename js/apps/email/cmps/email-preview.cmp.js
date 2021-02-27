@@ -4,8 +4,6 @@ export default {
     props: ['email'],
     template: `
         <section class="email-preview" :class="setClassReadUnRead">
-            <input type="checkbox" />
-            <span v-on:click="toggleStarMark" :class="setClassName">☆</span>
             <p>From:{{email.from}}</p> 
             <p>{{email.subject}}</p>
             <p>{{getBodyTxtToShow}}</p> 
