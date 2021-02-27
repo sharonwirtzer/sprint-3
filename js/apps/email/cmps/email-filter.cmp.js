@@ -1,36 +1,13 @@
-// import emailSort from '../cmps/email-sort.cmp.cmp.js';
 export default {
-    //     <form @submit.prevent="setFilter">
-    //     <input type="text" placeholder="txt" v-model="filterBy.byTxt">
-    //     <input type="number" placeholder="read/unread" v-model.number="filterBy.byRead">
-    // </form>
-    // <div >
-    //         <select @change="setSort" v-model="sortBy">
-    //             <option value="Dates Decending">Dates Decending</option>
-    //             <option value="Dates Ascending">Dates Ascending</option>
-    //             <option value="Titles Decending">Titles Decending</option>
-    //             <option value="Titles Ascending">Titles Ascending</option>
-    //         </select>               
-    //      </div>
-    //  <email-sort></email-sort>
-
-
     template: `
     <section class="email-filter"  >
-          
-            <input ref="emailInput"   class="email-search"  type="text" @input="setFilter" placeholder="Search mail" v-model="filterBy.byTxt">
-       
-            <select @change="setFilter" v-model="filterBy.byStatus">
-                <option value="All">All</option>
-                <option value="Read">Read</option>
-                <option value="Unread">Unread</option>
-            </select>               
-      
-      
-        
-       
+        <input ref="emailInput"   class="email-search"  type="text" @input="setFilter" placeholder="Search mail" v-model="filterBy.byTxt">
+        <select @change="setFilter" v-model="filterBy.byStatus">
+            <option value="All">All</option>
+            <option value="Read">Read</option>
+            <option value="Unread">Unread</option>
+        </select>                  
     </section>
-
     `,
     data() {
         return {
@@ -54,9 +31,6 @@ export default {
     },
     mounted() {
         console.log('mounted');
-        this.$refs.emailInput.focus()
-    },
-    components: {
-        // emailSort
+        this.$refs.emailInput.focus();
     }
 }

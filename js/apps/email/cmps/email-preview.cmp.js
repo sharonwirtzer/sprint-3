@@ -1,7 +1,6 @@
 import { utilService } from "../../../services/util.service.js"; //inbar??
 
 export default {
-    //<section class="email-preview" :class="email.isRead? 'bold' : 'unBold'"><p>{{email.isRead}}</p>   <p>{{email.id}}</p>
     props: ['email'],
     template: `
         <section class="email-preview" :class="setClassReadUnRead">
@@ -28,12 +27,10 @@ export default {
     },
     computed: {
         getTimeToShow() {
-            // return utilService.foramatDate(this.email.sentAt);
             let time;
             if (this.email.reciveAt) time = this.email.reciveAt;
             if (this.email.sentAt) time = this.email.sentAt;
             return utilService.foramatDate(time);
-
         },
         setClassName() {
             //find another name???
@@ -43,7 +40,6 @@ export default {
         setClassReadUnRead() {
             if (!this.email.isRead) return 'bold'
             else return 'unBold';
-
         },
         getBodyTxtToShow() {
             const SIZE = 15;

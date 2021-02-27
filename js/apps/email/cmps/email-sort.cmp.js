@@ -1,5 +1,5 @@
 export default {
-    props: ['emails'], //to do coping? inbar??
+    props: ['emails'],
     template: `
     <section class="email-sort">
         <div>
@@ -10,9 +10,7 @@ export default {
                 <option value="Titles Ascending">Titles Ascending</option>
             </select>               
          </div>
-       
     </section>
-
     `,
     data() {
         return {
@@ -50,7 +48,6 @@ export default {
     created() {
         this.sortBy = 'Dates Decending';
         this.sortByDate();
-        // this.emails.sort(this.sortCreatedAt);
     },
 
 }

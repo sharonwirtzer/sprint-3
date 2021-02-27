@@ -1,5 +1,4 @@
 export default {
-
     props: ['emails'],
     template: `
         <section v-if="emails">
@@ -7,17 +6,10 @@ export default {
         </section>`,
 
     computed: {
-
         getUnReadCount() {
             console.log('emails in status:', this.emails)
             return this.emails.filter(email => !email.isRead).length;
-            // this.unreadEmailsCount = this.emails.filter(email => !email.isRead).length;
-
         }
     },
 
-    // created() {
-    //     console.log('emails in status:', this.emails)
-
-    // }
 }
