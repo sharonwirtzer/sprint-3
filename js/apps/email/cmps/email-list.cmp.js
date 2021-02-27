@@ -53,13 +53,9 @@ export default {
     },
     computed: {
         emailToShow() {
-
-
+            debugger;
             if (folder === 'sent') {
-                this.emails.map()
-
-
-
+                var emailsToShow = this.emails.map(email => email.isSent)
 
             }
             // if(this.emails.sentAt)
