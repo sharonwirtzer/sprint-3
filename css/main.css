@@ -1,16 +1,14 @@
-/* Including one css file into other */
-
-@import "../css/apps/email/cmps/email-filter.cmp.css";
-@import "../css/apps/email/cmps/email-preview.cmp.css";
-@import "../css/apps/email/cmps/side-nav.cmp.css";
-
-/* @import "/css/apps/email/cmps/‏‏email-list.cmp.css"; */
 
 
-/* @import "/css/apps/email/pages/email-compose.cmp.css"; need to be here ? include in preview...*/
+@import "css/apps/email/cmps/email-filter.cmp.css";
+@import "css/apps/email/cmps/email-preview.cmp.css";
+@import "css/apps/email/cmps/side-nav.cmp.css";
+@import "css/apps/email/pages/email-details.cmp.css";
 
-@import "../css/apps/email/pages/email-details.cmp.css";
-@import "../css/apps/keep/keep.css";
+@import "apps/keep/keep.css";
+
+
+
 
 * {
     box-sizing: border-box;
