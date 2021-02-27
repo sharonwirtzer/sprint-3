@@ -1,11 +1,11 @@
+/* 
 
-
-@import "./apps/email/cmps/email-filter.cmp.css";
-@import "./apps/email/cmps/email-preview.cmp.css";
-@import "./apps/email/cmps/side-nav.cmp.css";
-@import "./apps/email/pages/email-details.cmp.css";
-
-@import "./apps/keep/keep.css";
+@import "../css/apps/email/cmps/email-filter.cmp.css";
+@import "../css/apps/email/cmps/email-preview.cmp.css";
+@import "../css/apps/email/cmps/side-nav.cmp.css";
+@import "../css/apps/email/pages/email-details.cmp.css";
+ */
+@import "./css/apps/keep/keep.css";
 
 
 
