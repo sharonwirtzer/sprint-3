@@ -32,8 +32,6 @@ export default {
             </section>
             `,
 
-    //<review-add v-bind:id:"book.id" ></review-add>     <review-add/>    <review-add v-bind:id:"book.id" ></review-add> 
-
     computed: {
         readingDuration() {
             if (this.book.pageCount > 500) return 'Long reading';

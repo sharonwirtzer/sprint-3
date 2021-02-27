@@ -4,8 +4,6 @@ import bookDetails from '../pages/book-details.cmp.js';
 import bookFilter from '../cmps/book-filter.cmp.js';
 
 
-
-
 export default {
     template: `<section class="book app-main">
                 <book-filter  v-if="!selectedBook" @filtered="setFilter" />
@@ -38,14 +36,7 @@ export default {
                 var emptyArr = [];
                 element['emptyArr'] = emptyArr;
             }
-
-            // this.books.forEach(element => {
-            //     var emptyArr = [];
-            //     element['emptyArr'] = emptyArr;
-            // });
             console.log('books:::::', this.books);
-            // return this.books
-
         }
     },
     computed: {
@@ -60,13 +51,8 @@ export default {
         },
     },
     created() {
-        // this.books = bookService.query();
         bookService.query()
             .then(books => this.books = books)
-            // .then(this.ddEmptyArr)
-            // .then(books => this.books = books)
-
-        // this.addEmptyArr();
     },
     components: {
         bookList,

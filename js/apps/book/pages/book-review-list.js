@@ -1,5 +1,3 @@
-// import reviewPreview from './review-preview.cmp.js';
-
 
 export default {
     props: ['review'],
@@ -18,9 +16,4 @@ export default {
         select(review) {
             this.$emit('selected', review)
         },
-
     },
-    // components: {
-    //     reviewPreview
-    // }
-}

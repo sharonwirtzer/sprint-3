@@ -1,9 +1,6 @@
 import { bookService } from '../services/book-service.js';
 
-
-
 export default {
-    // props: ['id'],
     template: `
     <section class="book-review">
         <h3>book review</h3>
@@ -23,12 +20,7 @@ export default {
     },
     methods: {
         save() {
-            // <router-link to="/review-list">Go to review list</router-link>
-            // bookService.addReview(this.id, review)
-
             return;
-            // bookService.save(this.bookToReview)
-            // this.bookToReview = bookService.getEmptyRevForm()
         }
     }
 }
