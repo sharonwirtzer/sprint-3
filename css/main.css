@@ -19,7 +19,7 @@
 
 .home {
     padding-top: 80px;
-    background-image: url('/img/njnj.jpg');
+    background-image: url('./img/njnj.jpg');
     background-size: cover;
     /* padding: 80px; */
     text-align: center;

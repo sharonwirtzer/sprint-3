@@ -25,7 +25,7 @@ export const keepList =[
     {
       "id": "OXeMG8wNskc",
       "title": "Buy food for Louis",
-      "img": "/img/2.jpeg"
+      "img": "./img/2.jpeg"
 
     },
   
