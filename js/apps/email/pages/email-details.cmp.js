@@ -2,27 +2,7 @@ import emailCompose from '../pages/email-compose.cmp.js';
 import { emailService } from '../services/email.service.js';
 import { utilService } from "../../../services/util.service.js";
 
-// <router-link to="/email/add" v-if="isReply" v-on:close="closeReply" v-on:send="sendReply" :email="email" :reply="true"></router-link>
-
-// <email-compose v-if="isReply" v-on:close="closeReply" v-on:send="sendReply" :email="email" :reply="true"></email-compose>
-
-
-// <router-link to="/email/add" v-if="isReply" v-on:close="closeReply" v-on:send="sendReply" :email="email" :reply="true">
-
-/* <button  v-on:click="replyEmail">Replay!!!!</button>
-</router-link> */
-//  <router-link to="/email/add" v-if="isReply" v-on:close="closeReply" v-on:send="sendReply" :email="email" :reply="true"  tag="button">
-//  Click me  
-// </router-link> 
-//  <p>{{email.isRead}}</p>
-//  debugger;
-// 
-
-//                    <button v-on:click="replyEmail" title="reply"> <img src="img/reply.png" height="30" width="30" /></button> 
-
-
 export default {
-    //  props: ['email'],
     template: `
         <section v-if="email" class="email-details">
             <div class="column" v-show="!isReply" >
@@ -70,18 +50,14 @@ export default {
                         type: 'success'
                     }
 
-                    // this.email = send;
-                    // eventBus.$emit('show-msg', msg)
-
                     this.$router.push('/email')
                 })
                 .catch(err => {
                     console.log(err);
                     const msg = {
-                            txt: 'Error, please try again later',
-                            type: 'error'
-                        }
-                        // eventBus.$emit('show-msg', msg)
+                        txt: 'Error, please try again later',
+                        type: 'error'
+                    }
                 })
         },
 
@@ -93,36 +69,13 @@ export default {
             this.isReply = true;
         },
 
-        // save() {
-        //     emailService.save(this.emailToAdd)
-        //         .then(email => {
-        //             console.log('Saved email:', email);
-        //             const msg = {
-        //                     txt: 'email saved succesfully',
-        //                     type: 'success'
-        //                 }
-        //                 // this.email = send;
-        //                 // eventBus.$emit('show-msg', msg)
-        //             this.$router.push('/email');
-        //         })
-        //         .catch(err => {
-        //             console.log(err);
-        //             const msg = {
-        //                     txt: 'Error, please try again later',
-        //                     type: 'error'
-        //                 }
-        //                 // eventBus.$emit('show-msg', msg)
-        //         })
-        // },
         loadEmail() {
             const id = this.$route.params.emailId
             emailService.getEmailById(id)
                 .then(email => {
 
                     this.email = email
-                        // this.nextEmailId = emailService.getNextEmailId(email.id)
                     this.email.isRead = true;
-                    //  this.save(); ///ask inbar 
                     console.log('this.email.isRead?????????details roe 86', this.email.isRead)
                 })
 
@@ -133,12 +86,11 @@ export default {
     },
     components: {
         emailService,
-        //  eventBus,
         emailCompose
 
     },
     watch: {
-        '$route.params.emailId' (id) {
+        '$route.params.emailId'(id) {
             console.log('Changed to', id);
             this.loadEmail();
         }
