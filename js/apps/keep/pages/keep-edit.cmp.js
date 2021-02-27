@@ -23,9 +23,7 @@ export default {
     data() {
         return {
             selectedFile: null,
-
             keepToEdit: keepService.getEmptykeep(),
-
             previewImage: null,
         }
     },

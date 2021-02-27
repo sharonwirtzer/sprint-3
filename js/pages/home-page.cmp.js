@@ -2,7 +2,6 @@ export default {
     template: `
     <section class="home app-main">
         <h1 >Appsus</h1>
-
 <section class="openn"   >
 
 <router-link title="email" class="open" to="/email"> <img src="img/emailgg.png" height="80" width="80" /></router-link> 
@@ -13,7 +12,3 @@ export default {
 </section>    
     `
 }
-
-
-
-{/* <router-link to="/email">Email</router-link> */}

@@ -1,14 +1,8 @@
-
-
 @import "../css/apps/email/cmps/email-filter.cmp.css";
 @import "../css/apps/email/cmps/email-preview.cmp.css";
 @import "../css/apps/email/cmps/side-nav.cmp.css";
 @import "../css/apps/email/pages/email-details.cmp.css";
-
 @import "../css/apps/keep/keep.css";
-
-
-
 
 * {
     box-sizing: border-box;
@@ -19,7 +13,6 @@
     padding-top: 80px;
     background-image: url('../img/njnj.jpg');
     background-size: cover;
-    /* padding: 80px; */
     text-align: center;
     color: rgb(224, 200, 62);
     font-size: 40px;
@@ -82,21 +75,6 @@ a {
     font-size: 35px;
 }
 
-
-/* APP */
-
-
-/* APP */
-
-
-/* FILTER */
-
-
-/* LIST */
-
-
-/* FOOTER */
-
 footer {
     background-color: white;
     padding: 10px;
@@ -141,7 +119,6 @@ footer {
     display: flex;
     flex-direction: column;
     margin-left: 45px;
-    /* background-color: rgb(235, 238, 235); */
     position: fixed;
     top: 175px;
     margin-top: 120px;
@@ -151,7 +128,6 @@ footer {
     display: flex;
     flex-direction: row;
     margin-left: 45px;
-    /* background-color: rgb(235, 238, 235); */
     position: fixed;
     top: 175px;
 

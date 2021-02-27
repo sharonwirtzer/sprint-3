@@ -18,7 +18,6 @@ export default {
             keeps: keepService.query(),
             selectedkeep: null,
             filterBy: null,
-
         }
     },
     methods: {
@@ -46,6 +45,6 @@ export default {
         keepFilter,
         keepList,
         keepEdit,
-        
+
     }
 }

@@ -15,11 +15,9 @@ export default {
     `,
 
     data() {
-       
-            return {
-              color: '# rgb(245, 246, 247)'
-            }
-          
+        return {
+            color: '# rgb(245, 246, 247)'
+        }
     },
 
     methods: {
@@ -34,7 +32,6 @@ export default {
             console.log('Id is', keepId);
         }
     },
-
 
     components: {
         keepPreview,

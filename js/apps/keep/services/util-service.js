@@ -2,7 +2,7 @@ export const utilService = {
     saveToStorage,
     loadFromStorage,
     makeId,
-   
+
 }
 
 function saveToStorage(key, value) {
