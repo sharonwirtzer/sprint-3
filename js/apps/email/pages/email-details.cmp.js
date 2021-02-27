@@ -5,20 +5,22 @@ import { utilService } from "../../../services/util.service.js";
 export default {
     template: `
         <section v-if="email" class="email-details">
+            <img class= "user" src="img/user.png" height="50" width="50"/>
             <div class="column" v-show="!isReply" >
                 <h1>Subject: {{email.subject}}</h1>
                 <div class="reply">
                     <button title="reply" v-on:click="replyEmail"> <img src="img/reply.png" height="30" width="30" /></button> 
                     <router-link to="/email" tag="button" title="back"> <img src="img/back.png" height="30" width="30" /></router-link>  
                 </div> 
-                <div class="flex spcae-between">     
-                    <img src="img/user.png" height="50" width="50"/>
-                    <h5>From:{{email.from}}</h5>
-                    <h5>To:{{email.sendTo}}</h5>
-                    <h5>Cc:{{email.cc}}</h5>
+                    
+              
+                <div class="flex spcae-between"> 
+                    <h5>From: {{email.from}}</h5>
+                    <h5>Cc: {{email.cc}}</h5>
                     <h5>{{getTimeToShow}}</h5>                     
-                </div> 
+               
                 <p>{{email.body}}</p> 
+                </div> 
             </div>
             <email-compose :reply="true" :email="email" v-if="isReply" v-on:close="closeReply" v-on:send="sendReply"></email-compose>               
     </section>`,
