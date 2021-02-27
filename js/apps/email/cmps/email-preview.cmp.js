@@ -4,12 +4,10 @@ export default {
     props: ['email'],
     template: `
         <section class="email-preview" :class="setClassReadUnRead">
-            <p>From:{{email.from}}</p> 
+            <p>From: {{email.from}}</p> 
             <p>{{email.subject}}</p>
             <p>{{getBodyTxtToShow}}</p> 
             <p>{{getTimeToShow}}</p>
-            <p>To:{{email.sendTo}}</p> 
-            <p>is read?:{{email.isRead}}</p>
         </section>`,
 
     data() {

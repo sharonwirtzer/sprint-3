@@ -39,7 +39,6 @@ export default {
     },
     methods: {
         sendReply(emailReply) {
-            debugger
             emailReply.sentAt = Date.now();
             emailReply.isReply = true;
             emailService.save(emailReply)
@@ -90,7 +89,7 @@ export default {
 
     },
     watch: {
-        '$route.params.emailId'(id) {
+        '$route.params.emailId' (id) {
             console.log('Changed to', id);
             this.loadEmail();
         }

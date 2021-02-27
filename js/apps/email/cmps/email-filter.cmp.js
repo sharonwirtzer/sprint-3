@@ -22,9 +22,9 @@ export default {
         setFilter() {
             this.$emit('filtered', {...this.filterBy });
         },
-        setSort() {
-            this.$emit('sorted', this.sortBy);
-        }
+        // setSort() {
+        //     this.$emit('sorted', this.sortBy);
+        // }
     },
     created() {
         console.log('created');

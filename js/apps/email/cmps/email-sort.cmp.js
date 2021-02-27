@@ -8,7 +8,8 @@ export default {
                 <option value="Dates Ascending">Dates Ascending</option>
                 <option value="Titles Decending">Titles Decending</option>
                 <option value="Titles Ascending">Titles Ascending</option>
-            </select>               
+            </select>   
+            <div class="user" >Hello, Nir<div>            
          </div>
     </section>
     `,

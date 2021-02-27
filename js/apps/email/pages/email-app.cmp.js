@@ -6,22 +6,35 @@ import emailPreview from '../cmps/email-preview.cmp.js';
 import sideNav from '../cmps/side-nav.cmp.js';
 import emailSort from '../cmps/email-sort.cmp.js';
 
+//  <email-compose></email-compose> 
+//  <router-link to="/email/add">+Compose</router-link>   <email-compose v-if:"isCompose"></email-compose> 
+
 export default {
     template: `
         <section class="email app-main">
-            <email-filter @filtered="setFilter" @sorted="setSort" />
+            <email-filter @filtered="setFilter"  />
             <email-sort :emails="emailsToShow"></email-sort>
             <email-list :emails="emailsToShow" @remove="removeEmail"  @read="markEmailRead"/> 
-            <side-nav></side-nav>
+            <side-nav @openCompose="openCompose"></side-nav>
+            
         </section>`,
     data() {
         return {
             emails: [],
             filterBy: null,
+            isCompose: null
 
         }
     },
     methods: {
+        openCompose() {
+            this.isCompose = true;
+
+        },
+        closeCompose() {
+            this.isCompose = false;
+
+        },
         loadEmails() {
             emailService.query()
                 .then(emails => this.emails = emails);
