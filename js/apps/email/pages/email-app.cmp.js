@@ -6,8 +6,6 @@ import emailPreview from '../cmps/email-preview.cmp.js';
 import sideNav from '../cmps/side-nav.cmp.js';
 import emailSort from '../cmps/email-sort.cmp.js';
 
-//  <email-compose></email-compose> 
-//  <router-link to="/email/add">+Compose</router-link>   <email-compose v-if:"isCompose"></email-compose> 
 
 export default {
     template: `
@@ -15,7 +13,7 @@ export default {
             <email-filter @filtered="setFilter"/>
             <email-sort :emails="emailsToShow"></email-sort>
             <email-list :emails="emailsToShow" @remove="removeEmail" v-show="!isCompose"/> 
-            <side-nav @openCompose="openCompose"  @openInbox="openInbox"  @openSentEmails="openSentEmails"></side-nav>
+            <side-nav @openCompose="openCompose"></side-nav>
             <email-compose @close="closeCompose" @send="saveEmail" v-if="isCompose"  :email="email" :reply="false"></email-compose>
         </section>`,
     data() {
@@ -68,21 +66,9 @@ export default {
         },
         openCompose() {
             this.isCompose = true;
-            this.isInbox = false;
-            this.isSentEmails = false;
-        },
-        openInbox() {
-            this.isInbox = true;
-            this.isSentEmails = false;
-            this.isCompose = false;
 
         },
-        openSentEmails() {
 
-            this.isSentEmails = true;
-            this.isCompose = false;
-            this.isInbox = false;
-        },
         closeCompose() {
             this.isCompose = false;
 
@@ -101,17 +87,7 @@ export default {
             this.filterBy = filterBy;
         },
 
-        // sortByDate(emails) {
-        //     if (this.sortBy === 'Dates Ascending') {
-        //         return emails.sort(function(a, b) {
-        //             return new Date(a.date) - new Date(b.date);
-        //         });
-        //     } else {
-        //         return emails.sort(function(a, b) {
-        //             return new Date(b.date) - new Date(a.date);
-        //         });
-        //     }
-        // },
+
 
         // markEmailRead(emailId) {
         //     emailService.getEmailById()
@@ -138,14 +114,7 @@ export default {
 
             return showenEmails;
         },
-        // setClassToInbox() {
 
-        //     return this.isInbox ? 'inbox-style' : 'sentEmails-style';
-        // },
-        // setClassToSentEmails() {
-
-        //     return this.isSentEmails ? 'sentEmails-style' : 'inbox-style';
-        // },
 
     },
     created() {
