@@ -5,6 +5,7 @@ import { utilService } from "../../../services/util.service.js";
 export default {
     template: `
         <section v-if="email" class="email-details">
+            <email-compose :reply="true" :email="email" v-if="isReply" @close="closeReply" @send="sendReply"></email-compose>               
             <img class= "user" src="img/user.png" height="50" width="50"/>
             <div class="column" v-show="!isReply" >
                 <h1>Subject: {{email.subject}}</h1>
@@ -21,7 +22,6 @@ export default {
                 <p>{{email.body}}</p> 
                 </div> 
             </div>
-            <email-compose :reply="true" :email="email" v-if="isReply" @close="closeReply" @send="sendReply"></email-compose>               
     </section>`,
 
     data() {

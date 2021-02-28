@@ -10,11 +10,11 @@ import emailSort from '../cmps/email-sort.cmp.js';
 export default {
     template: `
         <section class="email app-main">
+            <email-compose @close="closeCompose" @send="saveEmail" v-if="isCompose"  :email="email" :reply="false"></email-compose>
             <email-filter @filtered="setFilter"/>
             <email-sort :emails="emailsToShow"></email-sort>
             <email-list :emails="emailsToShow" @remove="removeEmail" v-show="!isCompose"/> 
             <side-nav @openCompose="openCompose"></side-nav>
-            <email-compose @close="closeCompose" @send="saveEmail" v-if="isCompose"  :email="email" :reply="false"></email-compose>
         </section>`,
     data() {
         return {
