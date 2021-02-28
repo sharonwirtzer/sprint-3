@@ -15,9 +15,6 @@ export const emailService = {
     markRead
 }
 
-function getAllEmails() {
-    return gEmails;
-}
 
 function getNextEmailId(emailId) {
     return ''
@@ -40,12 +37,6 @@ function markRead(emailId) {
 
 function save(email) {
     return storageService.post(EMAILS_KEY, email)
-
-    // if (!email.isReply) { the option of edit is not avaliable so we need only post...
-    //     return storageService.put(EMAILS_KEY, email)
-    // } else {
-    //     return storageService.post(EMAILS_KEY, email)
-    // }
 }
 
 
