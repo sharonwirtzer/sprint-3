@@ -16,6 +16,7 @@ export default {
             <email-list :emails="emailsToShow" @remove="removeEmail" v-show="!isCompose"/> 
             <side-nav @openCompose="openCompose"></side-nav>
         </section>`,
+
     data() {
         return {
             emails: [],
