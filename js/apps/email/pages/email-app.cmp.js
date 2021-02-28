@@ -86,18 +86,9 @@ export default {
         setFilter(filterBy) {
             this.filterBy = filterBy;
         },
-
-
-
-        // markEmailRead(emailId) {
-        //     emailService.getEmailById()
-        //     this.isRead = true;
-
-        // },
     },
     computed: {
         emailsToShow() {
-
             if (!this.filterBy) return this.emails;
             var { byTxt } = this.filterBy;
             byTxt = byTxt.toLowerCase();
@@ -109,12 +100,8 @@ export default {
             if (this.filterBy.byStatus === 'Unread') showenEmails = showenEmails.filter(email => !email.isRead);
             if (this.filterBy.byStatus === 'Read') showenEmails = showenEmails.filter(email => email.isRead);
 
-            if (this.isSentEmails) showenEmails = showenEmails.filter(email => email.sentAt);
-            if (this.isInbox) showenEmails = showenEmails.filter(email => email.reciveAt);
-
             return showenEmails;
         },
-
 
     },
     created() {
