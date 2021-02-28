@@ -19,7 +19,7 @@ export default {
             this.$emit('remove', emailId);
         },
         logId(emailId) {
-            console.log('Id is', emailId);
+
         },
         markEmailAsRead(emailId) {
 

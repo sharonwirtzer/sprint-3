@@ -37,10 +37,18 @@
     font-weight: 700;
 }
 
+.inbox-style {
+    font-weight: 700;
+}
+
 
 /*read emails*/
 
 .unBold {
+    font-weight: 200;
+}
+
+.sentEmails-style {
     font-weight: 200;
 }
 

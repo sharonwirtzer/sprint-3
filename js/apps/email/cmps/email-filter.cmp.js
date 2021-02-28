@@ -22,15 +22,10 @@ export default {
         setFilter() {
             this.$emit('filtered', {...this.filterBy });
         },
-        // setSort() {
-        //     this.$emit('sorted', this.sortBy);
-        // }
+
     },
-    created() {
-        console.log('created');
-    },
+    created() {},
     mounted() {
-        console.log('mounted');
         this.$refs.emailInput.focus();
     }
 }

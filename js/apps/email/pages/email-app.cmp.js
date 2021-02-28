@@ -12,24 +12,76 @@ import emailSort from '../cmps/email-sort.cmp.js';
 export default {
     template: `
         <section class="email app-main">
-            <email-filter @filtered="setFilter"  />
+            <email-filter @filtered="setFilter"/>
             <email-sort :emails="emailsToShow"></email-sort>
-            <email-list :emails="emailsToShow" @remove="removeEmail"  @read="markEmailRead"/> 
-            <side-nav @openCompose="openCompose"></side-nav>
-            
+            <email-list :emails="emailsToShow" @remove="removeEmail" v-show="!isCompose"/> 
+            <side-nav @openCompose="openCompose"  @openInbox="openInbox"  @openSentEmails="openSentEmails"></side-nav>
+            <email-compose @close="closeCompose" @send="saveEmail" v-if="isCompose"  :email="email" :reply="false"></email-compose>
         </section>`,
     data() {
         return {
             emails: [],
+            email: {
+                id: '',
+                from: 'Oded',
+                subject: '',
+                body: '',
+                isRead: true,
+                cc: '',
+                sentAt: '',
+                reciveAt: '',
+                sendTo: '',
+                isReply: false
+            },
+            isInbox: null,
             filterBy: null,
+            isSentEmails: null,
             isCompose: null
-
         }
     },
     methods: {
+        onCloseCompose() {
+            this.isCompose = false;
+            eventBus.$emit(DETAILS_PAGE_CLOSED, 'Details was closed');
+            this.$router.push('/email');
+        },
+        saveEmail() {
+            this.email.sentAt = Date.now();
+            this.isCompose = false;
+            emailService.save(this.email)
+                .then(email => {
+                    const msg = {
+                            txt: 'email saved succesfully',
+                            type: 'success'
+                        }
+                        // eventBus.$emit('show-msg', msg)
+                        // this.$router.push('/email')
+                })
+                .catch(err => {
+                    const msg = {
+                            txt: 'Error, please try again later',
+                            type: 'error'
+                        }
+                        // eventBus.$emit('show-msg', msg)
+                })
+
+        },
         openCompose() {
             this.isCompose = true;
+            this.isInbox = false;
+            this.isSentEmails = false;
+        },
+        openInbox() {
+            this.isInbox = true;
+            this.isSentEmails = false;
+            this.isCompose = false;
 
+        },
+        openSentEmails() {
+
+            this.isSentEmails = true;
+            this.isCompose = false;
+            this.isInbox = false;
         },
         closeCompose() {
             this.isCompose = false;
@@ -49,26 +101,27 @@ export default {
             this.filterBy = filterBy;
         },
 
-        sortByDate(emails) {
-            if (this.sortBy === 'Dates Ascending') {
-                return emails.sort(function(a, b) {
-                    return new Date(a.date) - new Date(b.date);
-                });
-            } else {
-                return emails.sort(function(a, b) {
-                    return new Date(b.date) - new Date(a.date);
-                });
-            }
-        },
+        // sortByDate(emails) {
+        //     if (this.sortBy === 'Dates Ascending') {
+        //         return emails.sort(function(a, b) {
+        //             return new Date(a.date) - new Date(b.date);
+        //         });
+        //     } else {
+        //         return emails.sort(function(a, b) {
+        //             return new Date(b.date) - new Date(a.date);
+        //         });
+        //     }
+        // },
 
-        markEmailRead(emailId) {
-            emailService.getEmailById()
-            this.isRead = true;
+        // markEmailRead(emailId) {
+        //     emailService.getEmailById()
+        //     this.isRead = true;
 
-        },
+        // },
     },
     computed: {
         emailsToShow() {
+
             if (!this.filterBy) return this.emails;
             var { byTxt } = this.filterBy;
             byTxt = byTxt.toLowerCase();
@@ -79,8 +132,20 @@ export default {
             })
             if (this.filterBy.byStatus === 'Unread') showenEmails = showenEmails.filter(email => !email.isRead);
             if (this.filterBy.byStatus === 'Read') showenEmails = showenEmails.filter(email => email.isRead);
+
+            if (this.isSentEmails) showenEmails = showenEmails.filter(email => email.sentAt);
+            if (this.isInbox) showenEmails = showenEmails.filter(email => email.reciveAt);
+
             return showenEmails;
         },
+        // setClassToInbox() {
+
+        //     return this.isInbox ? 'inbox-style' : 'sentEmails-style';
+        // },
+        // setClassToSentEmails() {
+
+        //     return this.isSentEmails ? 'sentEmails-style' : 'inbox-style';
+        // },
 
     },
     created() {

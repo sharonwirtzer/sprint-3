@@ -9,7 +9,9 @@ export default {
                 <option value="Titles Decending">Titles Decending</option>
                 <option value="Titles Ascending">Titles Ascending</option>
             </select>   
-            <div class="user" >Hello, Nir<div>            
+            <div class="user">
+                Hello, Oded
+            </div>            
          </div>
     </section>
     `,

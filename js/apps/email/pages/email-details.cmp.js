@@ -13,9 +13,8 @@ export default {
                     <router-link to="/email" tag="button" title="back"> <img src="img/back.png" height="30" width="30" /></router-link>  
                 </div> 
                 <div class="flex spcae-between">     
-                    
                     <h5>From:{{email.from}}</h5>
-                   
+                    <h5>To: {{email.sendTo}}</h5> 
                     <h5>Cc:{{email.cc}}</h5>
                     <h5>{{getTimeToShow}}</h5>                     
                
@@ -41,11 +40,15 @@ export default {
     },
     methods: {
         sendReply(emailReply) {
+            var tmp = emailReply.sendTo;
+            emailReply.sendTo = emailReply.from;
+            emailReply.from = tmp;
+
             emailReply.sentAt = Date.now();
             emailReply.isReply = true;
             emailService.save(emailReply)
                 .then(email => {
-                    console.log('Saved email:', email);
+
                     const msg = {
                         txt: 'email saved succesfully',
                         type: 'success'
@@ -54,7 +57,7 @@ export default {
                     this.$router.push('/email')
                 })
                 .catch(err => {
-                    console.log(err);
+
                     const msg = {
                         txt: 'Error, please try again later',
                         type: 'error'
@@ -63,7 +66,8 @@ export default {
         },
 
         closeReply() {
-            eventBus.$emit(DETAILS_PAGE_CLOSED, 'Details was closed');
+
+            // eventBus.$emit(DETAILS_PAGE_CLOSED, 'Details was closed');
             this.$router.push('/email');
         },
         replyEmail() {
@@ -74,10 +78,8 @@ export default {
             const id = this.$route.params.emailId
             emailService.getEmailById(id)
                 .then(email => {
-
                     this.email = email
                     this.email.isRead = true;
-                    console.log('this.email.isRead?????????details roe 86', this.email.isRead)
                 })
 
         }
@@ -92,7 +94,6 @@ export default {
     },
     watch: {
         '$route.params.emailId' (id) {
-            console.log('Changed to', id);
             this.loadEmail();
         }
     }

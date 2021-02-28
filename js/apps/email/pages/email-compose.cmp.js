@@ -3,14 +3,14 @@ import { emailService } from '../services/email.service.js'
 export default {
     props: ['email', 'reply'],
     template: `
-    <section v-if="email" class="email-compose-container">
+    <section  v-if="email" class="email-compose-container">
                 <input  placeholder="To:" type="text" v-model="email.sendTo">
                 <input  placeholder="Cc:" type="text" v-model="email.cc">
                 <input  placeholder="Subject:" type="text" v-model="email.subject">
                 <textarea  rows="30" cols="500" v-model="email.body"></textarea>
                 <button v-on:click="close">Close</button>
                 <button v-on:click="sent">Send</button>
-        </section>
+    </section>
     `,
 
     data() {
@@ -47,13 +47,14 @@ export default {
             this.emailToAdd.subject = 'Re:' + this.email.subject;
         } else {
             this.emailToAdd = emailService.getEmptyEmail();
+
         }
 
     },
     watch: {
         emailToAdd: {
             handler(val) {
-                console.log('email Modified', val)
+
             },
             deep: true
         }

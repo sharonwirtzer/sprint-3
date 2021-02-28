@@ -39,12 +39,13 @@ function markRead(emailId) {
 }
 
 function save(email) {
+    return storageService.post(EMAILS_KEY, email)
 
-    if (!email.isReply) {
-        return storageService.put(EMAILS_KEY, email)
-    } else {
-        return storageService.post(EMAILS_KEY, email)
-    }
+    // if (!email.isReply) { the option of edit is not avaliable so we need only post...
+    //     return storageService.put(EMAILS_KEY, email)
+    // } else {
+    //     return storageService.post(EMAILS_KEY, email)
+    // }
 }
 
 
@@ -56,16 +57,26 @@ function _createEmails() {
     let emails = utilService.loadFromStorage(EMAILS_KEY)
     if (!emails || !emails.length) {
         emails = []
-        emails.push(_createEmail('Dan','Tired of wearing the same socks every day?', 'Check out our new socks collection and trash the other ones! 50% off the previous collection.', 'Nir', false, false));
-        emails.push(_createEmail('Nir', 'Did you see this video?', 'Hey, I came accross this video and I thought it might interest you. Let me know what you  think!', 'Rachel', true, true));
-        emails.push(_createEmail('Sara', 'Landed in Vietnam - first pictures', 'Hi everyone, I just landed in Vietnam a day ago and it is incredible. The flight was long but worth it. Check out the first pictures I took. Wish you were there, lots of love!', 'Nir', true, false));
-        emails.push(_createEmail('Dr.Sharon', 'Doctor appointment', 'Hey, just a reminder that you have an appointment at the doctor´s office Tuesday at 10am.', 'Nir', false, false));
-        emails.push(_createEmail('Rachel', 'Amir´s secret birthday party', 'Hi all! As you may know, Amir will turn 30 next Friday. I have arranged for us to have a surrprise  party at his favourite bar: Teder.  We will meet at 7pm, just before he comes. Come happy and bearing gifts!', 'Nir', false, false));
-        emails.push(_createEmail('Discount Bank', 'Bank information', 'Good morning, please find enclosed my bank information. Bank: Leumi  Account number: 093848492283', 'Nir', false, false));
-        emails.push(_createEmail('Eli', 'Cool video montage', 'I made a video montage of our last trip to Eilat, check it out!', 'Nir', true, false));
-        emails.push(_createEmail('Nir', 'Are you ignoring me?!', 'Hey I tried calling you 10 times, whats going on?!', 'Eli', false, true));
-        emails.push(_createEmail('Nir', 'Work contract', 'Here you go, we are all set! Here is your contract so you can read it when you have time. Welcome to the company!', 'Sara', true, true));
-        emails.push(_createEmail('Discount Bank', 'Discount Bank  - Save the trees', 'Did you know that you could get your monthly recap via  email? Enable this option in just a few clicks, and save the trees!', 'Nir', false, false));
+        emails.push(_createEmail('Dan', 'Tired of wearing the same socks every day?', 'Check out our new socks collection and trash the other ones! 50% off the previous collection.', 'Oded', false, false));
+        emails.push(_createEmail('Sara', 'Landed in Vietnam - first pictures', 'Hi everyone, I just landed in Vietnam a day ago and it is incredible. The flight was long but worth it. Check out the first pictures I took. Wish you were there, lots of love!', 'Oded', false, false));
+        emails.push(_createEmail('Dr.Sharon', 'Doctor appointment', 'Hey, just a reminder that you have an appointment at the doctor´s office Tuesday at 10am.', 'Oded', false, false));
+        emails.push(_createEmail('Rachel', 'Amir´s secret birthday party', 'Hi all! As you may know, Amir will turn 30 next Friday. I have arranged for us to have a surrprise  party at his favourite bar: Teder.  We will meet at 7pm, just before he comes. Come happy and bearing gifts!', 'Oded', false, false));
+        emails.push(_createEmail('Discount Bank', 'Bank information', 'Good morning, please find enclosed my bank information. Bank: Leumi  Account number: 093848492283', 'Oded', false, false));
+        emails.push(_createEmail('Eli', 'Cool video montage', 'I made a video montage of our last trip to Eilat, check it out!', 'Oded', false, false));
+        emails.push(_createEmail('Discount Bank', 'Discount Bank  - Save the trees', 'Did you know that you could get your monthly recap via  email? Enable this option in just a few clicks, and save the trees!', 'Oded', false, false));
+
+
+
+        // emails.push(_createEmail('Dan', 'Tired of wearing the same socks every day?', 'Check out our new socks collection and trash the other ones! 50% off the previous collection.', 'Oded', false, false));
+        emails.push(_createEmail('Oded', 'Did you see this video?', 'Hey, I came accross this video and I thought it might interest you. Let me know what you  think!', 'Rachel', true, true));
+        // emails.push(_createEmail('Sara', 'Landed in Vietnam - first pictures', 'Hi everyone, I just landed in Vietnam a day ago and it is incredible. The flight was long but worth it. Check out the first pictures I took. Wish you were there, lots of love!', 'Oded', true, false));
+        // emails.push(_createEmail('Dr.Sharon', 'Doctor appointment', 'Hey, just a reminder that you have an appointment at the doctor´s office Tuesday at 10am.', 'Oded', false, false));
+        // emails.push(_createEmail('Rachel', 'Amir´s secret birthday party', 'Hi all! As you may know, Amir will turn 30 next Friday. I have arranged for us to have a surrprise  party at his favourite bar: Teder.  We will meet at 7pm, just before he comes. Come happy and bearing gifts!', 'Oded', false, false));
+        // emails.push(_createEmail('Discount Bank', 'Bank information', 'Good morning, please find enclosed my bank information. Bank: Leumi  Account number: 093848492283', 'Oded', false, false));
+        // emails.push(_createEmail('Eli', 'Cool video montage', 'I made a video montage of our last trip to Eilat, check it out!', 'Oded', true, false));
+        emails.push(_createEmail('Oded', 'Are you ignoring me?!', 'Hey I tried calling you 10 times, whats going on?!', 'Eli', true, true));
+        emails.push(_createEmail('Oded', 'Work contract', 'Here you go, we are all set! Here is your contract so you can read it when you have time. Welcome to the company!', 'Sara', true, true));
+        // emails.push(_createEmail('Discount Bank', 'Discount Bank  - Save the trees', 'Did you know that you could get your monthly recap via  email? Enable this option in just a few clicks, and save the trees!', 'Oded', false, false));
         utilService.saveToStorage(EMAILS_KEY, emails)
     }
     return emails;

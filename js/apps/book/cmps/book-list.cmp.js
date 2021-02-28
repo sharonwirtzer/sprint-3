@@ -15,8 +15,7 @@ export default {
     </ul>
     `,
     methods: {
-        logId(bookId){
-            console.log(bookId);
+        logId(bookId) {
             const msg = {
                 txt: `You pressed the ${bookId} book`,
                 type: 'success'
@@ -30,7 +29,7 @@ export default {
             this.$emit('selected', book)
         },
     },
-    components:{
+    components: {
         bookPreview
     }
 }
