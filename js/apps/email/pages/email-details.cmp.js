@@ -1,13 +1,12 @@
 import emailCompose from '../pages/email-compose.cmp.js';
 import { emailService } from '../services/email.service.js';
 import { utilService } from "../../../services/util.service.js";
-
 export default {
     template: `
         <section v-if="email" class="email-details">
             <email-compose :reply="true" :email="email" v-if="isReply" @close="closeReply" @send="sendReply"></email-compose>               
-            <img class= "user" src="img/user.png" height="50" width="50"/>
-            <div class="column" v-show="!isReply" >
+            <img class= "user" src="img/user.png" height="50" width="50" />
+            <div class="column" v-if="!isReply" >
                 <h1>Subject: {{email.subject}}</h1>
                 <div class="reply">
                     <button title="reply" @click="replyEmail"> <img src="img/reply.png" height="30" width="30" /></button> 
