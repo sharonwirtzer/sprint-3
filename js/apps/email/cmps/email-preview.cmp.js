@@ -29,7 +29,6 @@ export default {
             return utilService.foramatDate(time);
         },
         setClassName() {
-            //find another name???
             return this.isStarMark ? 'star-fill' : 'star-un-fill';
         },
 

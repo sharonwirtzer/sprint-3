@@ -9,7 +9,7 @@ export default {
             <div class="column" v-show="!isReply" >
                 <h1>Subject: {{email.subject}}</h1>
                 <div class="reply">
-                    <button title="reply" v-on:click="replyEmail"> <img src="img/reply.png" height="30" width="30" /></button> 
+                    <button title="reply" @click="replyEmail"> <img src="img/reply.png" height="30" width="30" /></button> 
                     <router-link to="/email" tag="button" title="back"> <img src="img/back.png" height="30" width="30" /></router-link>  
                 </div> 
                 <div class="flex spcae-between">     
@@ -21,7 +21,7 @@ export default {
                 <p>{{email.body}}</p> 
                 </div> 
             </div>
-            <email-compose :reply="true" :email="email" v-if="isReply" v-on:close="closeReply" v-on:send="sendReply"></email-compose>               
+            <email-compose :reply="true" :email="email" v-if="isReply" @close="closeReply" @send="sendReply"></email-compose>               
     </section>`,
 
     data() {
@@ -66,8 +66,6 @@ export default {
         },
 
         closeReply() {
-
-            // eventBus.$emit(DETAILS_PAGE_CLOSED, 'Details was closed');
             this.$router.push('/email');
         },
         replyEmail() {
