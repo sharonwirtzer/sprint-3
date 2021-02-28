@@ -39,6 +39,15 @@ export default {
         },
     },
     methods: {
+        loadEmail() {
+            const id = this.$route.params.emailId
+            emailService.getEmailById(id)
+                .then(email => {
+                    this.email = email
+                    this.email.isRead = true;
+                })
+
+        },
         sendReply(emailReply) {
             var tmp = emailReply.sendTo;
             emailReply.sendTo = emailReply.from;
@@ -72,15 +81,6 @@ export default {
             this.isReply = true;
         },
 
-        loadEmail() {
-            const id = this.$route.params.emailId
-            emailService.getEmailById(id)
-                .then(email => {
-                    this.email = email
-                    this.email.isRead = true;
-                })
-
-        }
     },
     created() {
         this.loadEmail();
